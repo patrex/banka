@@ -1,0 +1,12 @@
+.inv-btn {
+  display: none;
+}
+
+input[type='submit'], input[type='file'] {
+  display: block;
+  margin: .5em 1em;
+}
+
+main {
+  margin: 1em 10em;
+}

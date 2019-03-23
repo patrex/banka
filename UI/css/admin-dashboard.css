@@ -74,9 +74,6 @@ nav ul li a:hover {
     padding: 1em;
     text-transform: capitalize;
 } */
-main{
-
-}
 
 h1, h6 {
     padding: 1em .8em;
@@ -182,11 +179,6 @@ input[type='number'] {
         background-color: rgb(112, 128, 144);
     }
 
-    main {
-        padding: 1em;
-        /* background-color: yellow; */
-    }
-
     #avatar {
         border-radius: 50%;
         background: white;
@@ -233,7 +225,7 @@ input[type='number'] {
         background-color: rgba(0, 0, 0, 0.4) !important;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        
+
     }
 
 
@@ -246,4 +238,3 @@ input[type='number'] {
         display: none;
     } */
 }
-
