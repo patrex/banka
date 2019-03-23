@@ -1,0 +1,249 @@
+body, html{
+    height: calc(100% - 2em);
+    margin: 0;
+}
+
+aside {
+    display: grid;
+    grid-template-columns: auto 40px;
+    padding: 2em;
+}
+
+figure {
+    margin: 0;
+}
+
+figcaption {
+    font-size: 1.3em;
+    font-weight: bold;
+    cursor: pointer;
+    /* background-color: #0000CD; */
+}
+
+#menu-bar {
+    float: right;
+    font-style: normal;
+    cursor: pointer;
+}
+
+nav {
+
+}
+
+.active {
+    position: absolute;
+    width: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    background: rgb(74, 133, 168);
+    margin: 0;
+    height: 80%;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    display: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+nav ul li {
+    list-style-type: none;
+}
+
+nav ul li a {
+    color: aliceblue;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    /* background-color: rgb(255, 255, 255, .35); */
+    padding: 1.5em 3em;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+nav ul li a:hover {
+    background: whitesmoke;
+    color: black;
+}
+
+/* nav ul li.sos a {
+    display: block;
+    padding: 1em;
+    text-transform: capitalize;
+} */
+main{
+
+}
+
+h1, h6 {
+    padding: 1em .8em;
+    margin: 0;
+}
+
+p {
+    line-height: 1.5em;
+    font-size: 1.3em;
+    padding: 5px 1em;
+}
+
+h6 {
+    font-size: 1.5em;
+}
+
+.btn {
+    display: block;
+    background: #0000CD;
+    color: white;
+    padding: .7em;
+    margin: 1em 2em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    color: #0000CD;
+    border: .1em solid blue;
+    background-color: whitesmoke;
+}
+
+p#lorem {
+    padding: 1em;
+    line-height: 1.5em;
+}
+
+#menu-exit:hover {
+    background-color: red;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#menu-exit {
+    background-color: red;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 1em;
+}
+
+/* Style for cas-credit.html */
+.cta-btn {
+    display: block;
+    width: 30%;
+    margin: 1em auto;
+    text-align: center;
+    height: 2.0em;
+    /* vertical-align: -webkit-baseline-middle; */
+}
+
+input[type='number'] {
+    border-radius: 5px;
+    height: 2em;
+    width: 50%;
+}
+/* Styke for stf-del.html */
+
+.del {
+    border: .1em solid red;
+    display: block;
+    color: red;
+    padding: .7em;
+    margin: 1em 2em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.del:hover {
+    background-color: red;
+    color: white;
+}
+
+
+@media only screen and (min-width: 768px) {
+    body {
+        display: grid;
+        grid-template-columns: 20% auto;
+        /* padding: 2em; */
+    }
+
+    aside {
+        grid-template-columns: auto;
+        grid-template-rows: 40% auto;
+        padding: 0;
+        /* background-color: red; */
+        /* border-right: .1em solid blue; */
+        background-color: rgb(112, 128, 144);
+    }
+
+    main {
+        padding: 1em;
+        /* background-color: yellow; */
+    }
+
+    #avatar {
+        border-radius: 50%;
+        background: white;
+        width: 100px;
+        height: 100px;
+        margin: 2em auto;
+        cursor: pointer;
+    }
+
+    figcaption {
+        cursor: pointer;
+        text-align: center;
+        margin: .5em;
+        /* background: yellow; */
+    }
+
+    nav ul li a {
+        text-transform: capitalize;
+        display: block;
+        padding: 10px;
+        text-align: left;
+    }
+
+    #menu-exit {
+        display: none !important;
+    }
+
+    #menu-bar {
+        display: none !important;
+    }
+
+    .btn {
+        margin: 1em 0;
+        padding: 10px;
+        display: inline;
+        text-transform: capitalize;
+    }
+
+    nav ul {
+        display: block;
+        position: relative !important;
+        width: 100% !important;
+        /* background: #eee; */
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        
+    }
+
+
+
+    /* nav ul li.sos a {
+        display: none !important;
+    }
+
+    p.sos {
+        display: none;
+    } */
+}
+

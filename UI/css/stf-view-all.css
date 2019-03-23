@@ -1,0 +1,26 @@
+table {
+    width: 80%;
+    margin: 0 1em;
+}
+
+table, td, th {
+    border-collapse: collapse;
+    border: .1em solid #0000CD;
+}
+
+th {
+    text-transform: uppercase;
+    padding: .5em;
+ 
+}
+
+td {
+    text-align: center;
+    font-family: 'special elite regular';
+    font-size: .8em;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: #eee;
+}
