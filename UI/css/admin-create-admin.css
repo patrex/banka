@@ -1,10 +1,13 @@
-.inv-btn {
-  display: none;
+body {
+  background-color: #eee;
 }
 
 input[type='submit'], input[type='file'] {
   display: block;
   margin: .5em 1em;
+  background-color: #3b5998;
+  height: 2em;
+  border-radius: .5em;
 }
 
 main {

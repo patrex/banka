@@ -29,41 +29,38 @@
 
     </aside>
 
-        <main>
-              <h2>Create an Admin Account</h3>
-              <form class="form">
-                <div class="form-ctnr">
-                  <h4 class="heading">First name</h4>
-                  <input type="text" name="fname" value="">
-                  <h4 class="heading">Middle name</h4>
-                  <input type="text" name="mname" value="">
-                  <h4 class="heading">Last name</h4>
-                  <input type="text" name="lname" value="">
-                  <h4 class="heading">Email name</h4>
-                  <input type="text" name="email" value="">
+    <main>
+        <h2>Create an Admin Account</h3>
+        <form class="form">
+          <div class="form-ctnr">
+            <h4 class="heading">First name</h4>
+            <input type="text" name="fname" value="">
+            <h4 class="heading">Middle name</h4>
+            <input type="text" name="mname" value="">
+            <h4 class="heading">Last name</h4>
+            <input type="text" name="lname" value="">
+            <h4 class="heading">Email name</h4>
+            <input type="email" name="email" value="">
 
-                  <h4 class="heading">What Department</h4>
-                  <select class="select" name="">
-                    <option value="" selected>None</option>
-                    <option value="cus">Customer Service</option>
-                    <option value="" selected>Marketting</option>
-                    <option value="" selected>Sales</option>
-                    <option value="" selected>Advertising</option>
-                    <option value="" selected>Bankvegelism</option>
-                  </select>
+            <h4 class="heading">What Department</h4>
+            <select class="select" name="dpt">
+              <option value="" selected>None</option>
+              <option value="cus">Customer Service</option>
+              <option value="mkt">Marketting</option>
+              <option value="sal">Sales</option>
+              <option value="ads">Advertising</option>
+              <option value="bnk">Bankvegelism</option>
+            </select>
 
-                  <h4 class="heading">Upload a profile image</h4>
-                  <input type="file" accept="image/*" id="upload">
+            <h4 class="heading">Upload a profile image</h4>
+            <input type="file" accept="image/*" id="upload" name="upload">
 
+            <input type="submit" name="" value="Create Admin Account">
+          </div>
+        </form>
 
-
-                  <input type="submit" name="" value="Create Admin Account">
-
-                </div>
-              </form>
-
-
-        </main>
+    </main>
+        
     <script src="js/admin-dashboard.js"></script>
 </body>
 </html>
