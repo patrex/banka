@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Create Staff Account</title>
 
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="css/admin-dashboard.css">
     <link rel="stylesheet" href="css/admin-create-staff.css">
+    <link rel="stylesheet" href="css/css/all.min.css">
 </head>
 <body>
     <aside>
@@ -15,14 +17,14 @@
             <div id="avatar"></div>
             <figcaption>Johnny Smith</figcaption> 
         </figure>
-        <i id="menu-bar">&#9776;</i>
+        <!-- <i id="menu-bar">&#9776;</i> -->
         <nav>
+                <i class="fas fa-bars" id="menu-bar"></i>
             <ul id="list">
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#">Create Admin Account</a></li>
-                <li><a href="#">Create Staff Account</a></li>
                 <li><a href="#">Sign out</a></li>
-            
+                
                 <li><a href="#" id="menu-exit">Close Menu</a></li>
             </ul>
         </nav>
@@ -80,7 +82,8 @@
                     <option value="cln">Sanitory</option>
                     <option value="hod">Department Head</option>
                 </select>
-
+                <br>
+                <input type="submit" value="Create Account" class="btn">
 
             </div>
         </form>

@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Activate/Deactivate Account</title>
 
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="css/admin-dashboard.css">
     <link rel="stylesheet" href="css/cas-credit.css">
+    <link rel="stylesheet" href="css/css/all.min.css">
 </head>
 <body>
     <aside>
@@ -15,12 +17,14 @@
             <div id="avatar"></div>
             <figcaption>Johnny Smith</figcaption> 
         </figure>
-        <i id="menu-bar">&#9776;</i>
+        <!-- <i id="menu-bar">&#9776;</i> -->
+        
         <nav>
+            <i class="fas fa-bars" id="menu-bar"></i>
             <ul id="list">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Create Admin Account</a></li>
-                <li><a href="#">Create Staff Account</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="./admin-create-admin.html">Create Admin Account</a></li>
+                <li><a href="./admin-create-stf.html">Create Staff Account</a></li>
                 <li><a href="#">Sign out</a></li>
             
                 <li><a href="#" id="menu-exit">Close Menu</a></li>
@@ -41,11 +45,8 @@
             <h4>Current Balance: 123, 123.00</h4>   
         </div>
 
-        <p class="amt-label">Enter amount</p>
-        <input type="number" name="" id="">
-
-        <a href="#" class="cta-btn">Activate</a>
-        <a href="#" class="cta-btn">Deactivate</a>
+        <a href="#" class="btn">Activate</a>
+        <a href="#" class="btn-danger">Deactivate</a>
 
     </main>
     <script src="js/admin-dashboard.js"></script>
