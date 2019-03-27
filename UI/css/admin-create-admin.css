@@ -2,20 +2,11 @@ body {
   background-color: #eee;
 }
 
-input[type='submit'] {
-  display: block;
-  margin: .5em 1em;
-  background-color: #e48d48;
-  height: 2em;
-  border-radius: .5em;
-  color: #fff;
-}
-
 input[type='text'], input[type='email'] {
   display: block;
   height: 2em;
   border-radius: .5em;
-  width: 80%;
+  width: 70%;
 }
 
 main {
@@ -23,7 +14,23 @@ main {
 }
 
 .label {
-  width: 50px;
-  margin: .5em auto;
   cursor: pointer;
+}
+
+select {
+  width: 70%;
+  border-radius: .5em;
+  height: 2em;
+}
+
+a.btn {
+  display: block;
+  border-radius: .5em;
+  width: 10%;
+}
+
+@media only screen and (max-width: 480px) {
+  a.btn {
+    width: 30%;
+  }
 }
