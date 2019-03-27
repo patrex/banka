@@ -21,3 +21,9 @@ input[type='text'], input[type='email'] {
 main {
   margin: 1em 2em;
 }
+
+.label {
+  width: 50px;
+  margin: .5em auto;
+  cursor: pointer;
+}

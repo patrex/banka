@@ -34,7 +34,7 @@
 
     <main>
         <h2>Create an Admin Account</h3>
-        <form class="form">
+        <!-- <form class="form"> -->
           <div class="form-ctnr">
             <h4 class="heading">First name</h4>
             <input type="text" name="fname" value="">
@@ -55,12 +55,19 @@
               <option value="bnk">Bankvegelism</option>
             </select>
 
-            <h4 class="heading">Upload a profile image</h4>
-            <input type="file" accept="image/*" id="upload" name="upload">
+            <!-- <h4 class="heading">Upload a profile image</h4> -->
+            <button class="btn">
+                <label for="file-upload" class="label">
+                    <input type="file" accept="image/*" id="file-upload" name="upload" style="display: none;">
+                    Select Image
+                </label>
+            </button>
+            
+            
 
-            <input type="submit" name="" value="Create Admin Account">
+            <!-- <input type="submit" name="" value="Create Admin Account"> -->
           </div>
-        </form>
+        <!-- </form> -->
 
     </main>
         
