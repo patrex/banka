@@ -1,5 +1,5 @@
 table, td, th {
-    border: .1em solid #0000CD;
+    border: .1em solid #e48d48;
     border-collapse: collapse;
 }
 
@@ -27,4 +27,8 @@ input[type='date'] {
 
 tr:nth-child(even) {
     background-color: #eee;
+}
+
+main {
+    padding: 1em 1em;
 }

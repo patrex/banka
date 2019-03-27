@@ -2,14 +2,22 @@ body {
   background-color: #eee;
 }
 
-input[type='submit'], input[type='file'] {
+input[type='submit'] {
   display: block;
   margin: .5em 1em;
-  background-color: #3b5998;
+  background-color: #e48d48;
   height: 2em;
   border-radius: .5em;
+  color: #fff;
+}
+
+input[type='text'], input[type='email'] {
+  display: block;
+  height: 2em;
+  border-radius: .5em;
+  width: 80%;
 }
 
 main {
-  margin: 1em 10em;
+  margin: 1em 2em;
 }

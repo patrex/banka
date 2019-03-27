@@ -1,16 +1,18 @@
 table {
     width: 80%;
     margin: 0 1em;
+   
 }
 
 table, td, th {
     border-collapse: collapse;
-    border: .1em solid #0000CD;
+    border: .1em solid #e48d48;
 }
 
 th {
     text-transform: uppercase;
     padding: .5em;
+    margin: 2.5em;
  
 }
 
@@ -19,8 +21,21 @@ td {
     font-family: 'special elite regular';
     font-size: .8em;
     padding: 5px;
+    margin: .5em 0;
+    height: 2.0em;
+    text-transform: capitalize;
+    font-weight: 130%;
+    white-space: nowrap;
 }
 
 tr:nth-child(even) {
     background-color: #eee;
+    /* color: #fff; */
+    color: #000; 
+}
+
+main {
+    margin: .5em .55em;
+    overflow: hidden;
+    padding: 1em;
 }

@@ -1,19 +1,19 @@
 body {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 10% 60% 5% 20%;
+    grid-template-rows: 10% 50% 10% 20%;
     grid-template-areas: 
         "logo"
         "form"
         "sos"
         "footer";
     background-color: #eee;
-    min-height: 650px;
+    min-height: 750px;
 }
 
 .logo {
     grid-area: logo;
-    color: #0000CD;
+    color: #3b5998;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -21,7 +21,7 @@ body {
 }
 
 .heading {
-    margin: 2em auto;
+    margin: 1em auto;
 }
 
 .sos {
@@ -37,7 +37,7 @@ body {
     /* width: 60%; */
     grid-area: form;
     background-color: white;
-    color: #0000CD;
+    color: #3b5998;
     border: .1em solid grey;
     margin: 5px auto;
     padding: 1em 2em;
@@ -59,7 +59,7 @@ body {
 a.subBtn {
     /* width: 2em; */
     margin: 1em auto;
-    background-color: #0000CD;
+    background-color: #e48d48;
     text-decoration: none;
     display: block;
     padding: .5em;
@@ -74,6 +74,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top: #e48d48 solid 1px;
 }
 
 a.bannr {
@@ -83,25 +84,17 @@ a.bannr {
     margin: 5px 0;
     cursor: pointer;
     text-decoration: none;
-    color: #0000CD;
+    color: #3b5998;
     font-size: 3em;
 }
 
-input[type='password'] {
+input[type='password'], input[type='text']  {
     display: block;
     height: 2em;
-    padding: 2px;
+    padding-left: 2px;
     border-radius: .3em;
-    margin: 1em 0;
-   
-}
-
-input[type='text'] {
-    display: block;
-    height: 2em;
-    padding: 2px;
-    border-radius: .3em;
-    margin: 1em 0;
+    margin: .5em 0 1.5em 0;
+    width: 90%;
 }
 
 .reg-sec {
@@ -186,7 +179,7 @@ ul.nav-ul li.menu-bar {
     display: none;
 }  */
 
-@media only screen and (min-width: 480px){
+@media only screen and (max-width: 480px){
     /* #menu-bar, .active {
         display: none !important;
     } */
@@ -230,6 +223,16 @@ ul.nav-ul li.menu-bar {
     #menu-exit {
         display: none !important;
     } */
-
+    body {
+        grid-template-columns: auto;
+        grid-template-rows: 10% 60% 5% 20%;
+        grid-template-areas: 
+            "logo"
+            "form"
+            "sos"
+            "footer";
+        background-color: #eee;
+        min-height: 750px;
+    }
     
 }

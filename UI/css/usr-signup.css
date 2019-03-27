@@ -1,5 +1,5 @@
 body {
-    padding: 0;
+    padding: .5em;
     margin: 0;
 
     display: grid;
@@ -46,30 +46,13 @@ input[type='text'], input[type='password'], input[type='email']  {
     border-radius: .5em;
 }
 
-input[type='submit'] {
-    display: block;
-    background: #0000CD;
-    color: #fff;
-    height: 1.5em;
-    padding: 0 2em;
-    margin: .5em auto;
-    border-radius: .5em;
-}
-
 a.bannr {
     text-decoration: none;
 }
 
 /* Styles for usr-create-acct.html */
 
-input[type='tel'] {
-    display: block;
-    height: 1.5em;
-    width: 90%;
-    border-radius: .5em;
-}
-
-input[type='date'] {
+input[type='tel'], input[type='date'] {
     display: block;
     height: 1.5em;
     width: 90%;
@@ -79,4 +62,21 @@ input[type='date'] {
 textarea {
     width: 90%;
     border-radius: .5em;
+}
+
+.btn {
+    display: block;
+    background: #e48d48;
+    color: white;
+    padding: .7em;
+    margin: 1em 2em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    color: #3b5998;
+    background-color: whitesmoke;
 }
