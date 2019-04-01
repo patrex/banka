@@ -64,8 +64,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background: whitesmoke;
-    color: black;
+    background: #e48d48;
+    color: #fff;
 }
 
 /* nav ul li.sos a {
