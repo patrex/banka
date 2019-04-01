@@ -183,7 +183,7 @@ em.mob-bannr {
 }
 
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 380px) {
   body {
     min-height: 900px;
     display: grid;
