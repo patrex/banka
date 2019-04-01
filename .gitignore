@@ -1,2 +1,5 @@
 UI/css/css/
 UI/css/webfonts/
+build/
+server/
+node_modules/
