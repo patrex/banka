@@ -36,16 +36,22 @@
 
         <form action="./admin-dashboard.html">
             <div class="form-ctnr">
-                <h3>*First name</h3>
-                <input type="text" name="fname" id="">
-                <h3>Middle name</h3>
-                <input type="text" name="fname" id="">
-                <h3>*Last name</h3>
-                <input type="text" name="fname" id="">
-                <h3>Contact address</h3>
-                <textarea name="addr" id="" cols="30" rows="10"></textarea>
-                <h3>*Nationality</h3>
-                <select name="nationality" id="">
+                <!-- <h3>*First name</h3> -->
+                <label for="fname" class="heading">Firstname</label>
+                <input type="text" name="fname" id="fname">
+
+                
+                <!-- <h3>Middle name</h3> -->
+                <label for="mname" class="heading">Middlename</label>
+                <input type="text" name="mname" id="mname">
+                <!-- <h3>*Last name</h3> -->
+                <label for="lname" class="heading">Lastname</label>
+                <input type="text" name="lname" id="lname">
+
+
+                <!-- <h3>*Nationality</h3> -->
+                <label for="nat" class="heading">Country</label>
+                <select name="nat" id="nat">
                     <option value="ng">Nigeria</option>
                     <option value="gh">Ghana</option>
                     <option value="cd">Cote D'Ivoire</option>
@@ -54,8 +60,9 @@
                     <option value="sn">Senegal</option>
                     <option value="rw">Riwandha</option>
                 </select>
-                <h3>*State</h3>
-                <select name="state" id="">
+                <!-- <h3>*State</h3> -->
+                <label for="state" class="heading">State</label>
+                <select name="state" id="state">
                     <option value="rv">Rivers State</option>
                     <option value="ab">Abia State</option>
                     <option value="og">Ogun State</option>
@@ -65,16 +72,18 @@
                     <option value="lg">Lagos State</option>
                 </select>
 
-                <h3>*Sex</h3>
-                <select name="sex" id="">
+                <!-- <h3>*Sex</h3> -->
+                <label for="sex" class="heading">Sex</label>
+                <select name="sex" id="sex">
                     <option value="ml">Male</option>
                     <option value="fm">Female</option>
                     <option value="nn">Not specified</option>
 
                 </select>
 
-                <h3>Designation</h3>
-                <select name="designation" id="">
+                <!-- <h3>Designation</h3> -->
+                <label for="desig" class="heading">Designation</label>
+                <select name="designation" id="desig">
                     <option value="mgr">Manager</option>
                     <option value="cas">Cashier</option>
                     <option value="clk">Clerk</option>

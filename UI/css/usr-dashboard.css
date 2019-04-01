@@ -207,7 +207,7 @@ textarea {
 
     aside {
         grid-template-columns: auto;
-        grid-template-rows: 30% auto;
+        grid-template-rows: 40% auto;
         padding: 0;
         /* background-color: red; */
         /* border-right: .1em solid blue; */
