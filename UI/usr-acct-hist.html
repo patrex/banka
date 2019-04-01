@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User | Transactions</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+    <link rel="stylesheet" href="css/usr-acct-hist.css">
+    
+</head>
+<body>
+    <aside>
+        <figure>
+            <div id="avatar"></div>
+            <figcaption>Johnny Smith</figcaption> 
+        </figure>
+        <!-- <i id="menu-bar">&#9776;</i> -->
+        <nav>
+            <i class="fas fa-bars" id="menu-bar"></i>
+            <ul id="list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Sign out</a></li>
+            
+                <li><a href="#" id="menu-exit">Close Menu</a></li>
+            </ul>
+        </nav>
+        
+    </aside>
+
+    <main>
+        <h2>Transaction History</h3>
+        <h5>Here you can view information about your financial transactions</h5>
+
+        Range to display: from <input type="date" name="init" id="init"> to: <input type="date" name="last" id="last">
+        <div class="acct-info">
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Details</th>
+                    <th>Debit</th>
+                    <th>Credit</th>
+                    <th>Balance</th>
+                </tr>
+                <tr>
+                    <td>11-5-2019</td>
+                    <td>POSPUR</td>
+                    <td>-</td>
+                    <td>23.56</td>
+                    <td>-</td>
+                    <td>123.56</td>
+                </tr>
+                <tr>
+                    <td>11-5-2019</td>
+                    <td>ATMPUR</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>435.3</td>
+                    <td>456.56</td>
+                </tr>
+
+                
+            </table>   
+        </div>
+
+    </main>
+    <script src="js/usr-dashboard.js"></script>
+</body>
+</html>

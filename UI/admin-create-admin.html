@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Admin Account</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/admin-create-admin.css">
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+    <!-- <link rel="stylesheet" href="css/css/all.min.css"> -->
+</head>
+<body>
+    <aside>
+        <figure>
+            <div id="avatar"></div>
+            <figcaption>Johnny Smith</figcaption>
+        </figure>
+        <!-- <i id="menu-bar">&#9776;</i> -->
+        <nav>
+            <i class="fas fa-bars" id="menu-bar"></i>
+            <ul id="list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="./admin-create-admin.html">Create Admin Account</a></li>
+                <li><a href="./admin-create-stf.html">Create Staff Account</a></li>
+                <li><a href="#">Sign out</a></li>
+
+                <li><a href="#" id="menu-exit">Close Menu</a></li>
+            </ul>
+        </nav>
+
+    </aside>
+
+    <main>
+        <h2>Create an Admin Account</h3>
+        <form class="form">
+          <div class="form-ctnr">
+            <h4 class="heading">First name</h4>
+            <input type="text" name="fname" value="">
+            <h4 class="heading">Middle name</h4>
+            <input type="text" name="mname" value="">
+            <h4 class="heading">Last name</h4>
+            <input type="text" name="lname" value="">
+            <h4 class="heading">Email</h4>
+            <input type="email" name="email" value="">
+
+            <h4 class="heading">What Department</h4>
+            <select class="select" name="dpt">
+              <option value="" selected>None</option>
+              <option value="cus">Customer Service</option>
+              <option value="mkt">Marketting</option>
+              <option value="sal">Sales</option>
+              <option value="ads">Advertising</option>
+              <option value="bnk">Bankvegelism</option>
+            </select>
+
+            <br>
+
+            <!-- <h4 class="heading">Upload a profile image</h4> -->
+            <a class="btn">
+                <label for="file-upload" class="label">
+                    <input type="file" accept="image/*" id="file-upload" name="upload" style="display: none;">
+                    Select Image
+                </label>
+            </a>
+            
+            <input type="submit" name="" value="Create Admin Account" class="btn">
+          </div>
+        </form>
+
+    </main>
+        
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html>
