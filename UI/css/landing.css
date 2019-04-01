@@ -1,14 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 100px 50px 300px 500px;
+  grid-template-rows: 100px 50px 300px 600px;
   grid-template-areas:
     "contact"
     "nav"
     "main"
     "footer";
   background-color: #3b5998;
-  min-height: 1000px;
+  min-height: 1100px;
+  font-family: Roboto,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .contact {
@@ -20,6 +24,10 @@ body {
   grid-template-rows: 20% 60%;
   align-items: center;
   justify-content: center;
+}
+
+.fab {
+  color: #fff;
 }
 
 .ssos {
@@ -96,11 +104,12 @@ nav ul li a {
 nav {
   grid-area: nav;
   margin: 0;
-
+  font-family: Roboto,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .banner {
   display: none;   
+  font-family: 'Catamaran','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 main {
@@ -139,6 +148,39 @@ footer {
   margin: 0;
 }
 
+.btn {
+  display: block;
+  background: #e48d48;
+  color: white;
+  padding: .1em;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 20%;
+  margin: .5em 0;
+  
+}
+
+.btn:hover {
+  color: #e48d48;
+  background-color: whitesmoke;
+ 
+}
+
+div.left {
+  display: none;
+}
+
+div.right {
+  display: none;
+}
+
+em.mob-bannr {
+  font-style: normal;
+  font-size: 120%;
+  font-weight: bold;
+  color: #fff;
+}
 
 
 @media only screen and (min-width: 480px) {
@@ -167,6 +209,10 @@ footer {
     color: #fff;
     background-color: #3b5998;
     padding: 0 .5em;
+  }
+
+  em.mob-bannr {
+    display: none;
   }
 
   .ssos {
@@ -232,12 +278,36 @@ footer {
     background: url('https://source.unsplash.com/3fPXt37X6UQ/1400x400') no-repeat center center;
     color: white;
     margin: .5em auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+      "left"
+      "right";
+    
   }
+
+  div.left {
+    color: #3b5998;
+    background-color: rgba(255, 255, 255, .80);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fa-ul {
+    font-family: 'Catamaran','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+
 
   footer {
     flex-flow: row;
     background-color: #3b5998;
     grid-area: footer;
   }
+
+
 
 }
