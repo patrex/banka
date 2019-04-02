@@ -88,9 +88,9 @@ nav ul li a:hover {
 }
 
 .btn:hover {
-    color: #3b5998;
-    background-color: whitesmoke;
-    border: 1px solid #3b5998;
+    color: #e48d48;
+    background-color: #3b5998;
+    
 }
 
 p#lorem {
