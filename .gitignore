@@ -3,3 +3,4 @@ UI/css/webfonts/
 build/
 server/
 node_modules/
+package-lock.json
