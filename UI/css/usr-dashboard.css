@@ -1,5 +1,5 @@
 body, html{
-    height: calc(100% - 2em);
+    min-height: 560px;
     margin: 0;
 }
 
@@ -216,7 +216,7 @@ textarea {
 
     main {
         padding: 1em;
-        /* background-color: yellow; */
+        background-color: #eee;
       
     }
 
