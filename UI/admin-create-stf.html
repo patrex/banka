@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Staff Account</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+    <link rel="stylesheet" href="css/admin-create-staff.css">
+    <!-- <link rel="stylesheet" href="css/css/all.min.css"> -->
+</head>
+<body>
+    <aside>
+        <figure>
+            <div id="avatar"></div>
+            <figcaption>Johnny Smith</figcaption> 
+        </figure>
+        <!-- <i id="menu-bar">&#9776;</i> -->
+        <nav>
+            <i class="fas fa-bars" id="menu-bar"></i>
+            <ul id="list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="./admin-create-admin.html">Create Admin Account</a></li>
+                <li><a href="#">Sign out</a></li>
+                
+                <li><a href="#" id="menu-exit">Close Menu</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h2>Create Staff Account</h2>
+        <p>* Fields are mandatory</p>
+
+        <form action="./admin-dashboard.html">
+            <div class="form-ctnr">
+                <!-- <h3>*First name</h3> -->
+                <label for="fname" class="heading">Firstname</label>
+                <input type="text" name="fname" id="fname">
+
+                
+                <!-- <h3>Middle name</h3> -->
+                <label for="mname" class="heading">Middlename</label>
+                <input type="text" name="mname" id="mname">
+                <!-- <h3>*Last name</h3> -->
+                <label for="lname" class="heading">Lastname</label>
+                <input type="text" name="lname" id="lname">
+
+
+                <!-- <h3>*Nationality</h3> -->
+                <label for="nat" class="heading">Country</label>
+                <select name="nat" id="nat">
+                    <option value="ng">Nigeria</option>
+                    <option value="gh">Ghana</option>
+                    <option value="cd">Cote D'Ivoire</option>
+                    <option value="cm">Cameroon</option>
+                    <option value="tg">Togo</option>
+                    <option value="sn">Senegal</option>
+                    <option value="rw">Riwandha</option>
+                </select>
+                <!-- <h3>*State</h3> -->
+                <label for="state" class="heading">State</label>
+                <select name="state" id="state">
+                    <option value="rv">Rivers State</option>
+                    <option value="ab">Abia State</option>
+                    <option value="og">Ogun State</option>
+                    <option value="ba">Bauchi State</option>
+                    <option value="yl">Yola State</option>
+                    <option value="cl">Calabar State</option>
+                    <option value="lg">Lagos State</option>
+                </select>
+
+                <!-- <h3>*Sex</h3> -->
+                <label for="sex" class="heading">Sex</label>
+                <select name="sex" id="sex">
+                    <option value="ml">Male</option>
+                    <option value="fm">Female</option>
+                    <option value="nn">Not specified</option>
+
+                </select>
+
+                <!-- <h3>Designation</h3> -->
+                <label for="desig" class="heading">Designation</label>
+                <select name="designation" id="desig">
+                    <option value="mgr">Manager</option>
+                    <option value="cas">Cashier</option>
+                    <option value="clk">Clerk</option>
+                    <option value="sec">Security</option>
+                    <option value="cln">Sanitory</option>
+                    <option value="hod">Department Head</option>
+                </select>
+                <br>
+                <input type="submit" value="Create Account" class="btn">
+
+            </div>
+        </form>
+    </main>
+    <script src="js/admin-dashboard.js"></script>
+    <script src=""></script>
+</body>
+</html>
