@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/api/v1/auth', users);
-app.use('/api/v1/accounts', accounts);
-app.use('/api/v1/transactions', transactions);
+// app.use('/api/v1/accounts', accounts);
+// app.use('/api/v1/transactions', transactions);
 
 module.exports = app;
