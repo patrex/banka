@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
-import users from '../models/users';
-import accounts from '../models/accounts';
-import transactions from '../models/transactions';
+import users from '../models/users.model';
+import accounts from '../models/accounts.model';
+import transactions from '../models/transactions.model';
 
 export default class {
   getAll(req, res) {

@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import Joi from 'joi';
-import accounts from '../models/accounts';
+import accounts from '../models/accounts.model';
 
 export default class {
   getAll(req, res) {

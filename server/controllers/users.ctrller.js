@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import users from '../models/users';
+import users from '../models/users.model';
 
 export default class {
   getAll(req, res) {
