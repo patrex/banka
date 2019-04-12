@@ -13,24 +13,24 @@ export default class {
 
   debitAcct(req, res) {
     const { accountNumber } = req.params;
-    const { amount, cashierID, transType } = req.body;
+    const { amount, cashierID, transactionType } = req.body;
     const acctID = accounts.findIndex(account => account.acctNumber === accountNumber);
     const userID = users.findIndex(user => user.userID === cashierID);
     if (acctID !== -1) {
       if (userID !== -1) {
         if (users[userID].userType === 'cashier') {
-          const transID = transactions.length;
+          const transactionID = transactions.length;
 
           const oldBalance = accounts[acctID].balance;
           const newBalance = accounts[acctID].balance - amount;
 
           if (newBalance >= 0) {
             const transaction = {
-              transID,
+              transactionID,
               amount,
-              acctNumber: accounts[acctID].acctNumber,
+              accountNumber: parseInt(accounts[acctID].acctNumber, 10),
               cashierID,
-              transType,
+              transactionType,
               oldBalance,
               newBalance,
             };
@@ -50,9 +50,9 @@ export default class {
             });
           }
 
-          res.status(201).json({
-            status: 201,
-            data: transactions[transID],
+          res.status(202).json({
+            status: 202,
+            data: transactions[transactionID],
           });
         } else {
           res.status(403).json({
@@ -76,22 +76,22 @@ export default class {
 
   creditAcct(req, res) {
     const { accountNumber } = req.params;
-    const { amount, cashierID, transType } = req.body;
+    const { amount, cashierID, transactionType } = req.body;
     const acctID = accounts.findIndex(account => account.acctNumber === accountNumber);
     const userID = users.findIndex(user => user.userID === cashierID);
     if (acctID !== -1) {
       if (userID !== -1) {
         if (users[userID].userType === 'cashier') {
-          const transID = transactions.length;
+          const transactionID = transactions.length;
           const oldBalance = accounts[acctID].balance;
           const newBalance = accounts[acctID].balance + amount;
 
           const transaction = {
-            transID,
+            transactionID,
             amount,
-            acctNumber: accounts[acctID].acctNumber,
+            accountNumber: parseInt(accounts[acctID].acctNumber, 10),
             cashierID,
-            transType,
+            transactionType,
             createdOn: Date.now(),
             oldBalance,
             newBalance,
@@ -106,9 +106,9 @@ export default class {
             });
           }
 
-          res.status(201).json({
-            status: 201,
-            data: transactions[transID],
+          res.status(202).json({
+            status: 202,
+            data: transactions[transactionID],
           });
         } else {
           res.status(403).json({

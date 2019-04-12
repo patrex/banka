@@ -53,7 +53,7 @@ export default class {
 
     Joi.validate(account, schema)
       .then(() => {
-        const acctNum = `0${Math.ceil(Math.random() * 10e8 + 1)}`;
+        const acctNum = `${accounts.length}`;
 
         account.acctNumber = acctNum;
         account.id = acctID;
@@ -64,10 +64,10 @@ export default class {
 
         accounts.push(account);
 
-        res.status(200).json({
-          status: 200,
+        res.status(201).json({
+          status: 201,
           data: {
-            accountNumber: accounts[acctID].acctNumber,
+            accountNumber: parseInt(accounts[acctID].acctNumber, 10),
             firstname: accounts[acctID].firstname,
             lastname: accounts[acctID].lastname,
             email: accounts[acctID].email,
@@ -86,13 +86,14 @@ export default class {
   activateDeactivate(req, res) {
     const { accountNumber } = req.params;
     const { status } = req.body;
-    const acctID = accounts.findIndex(account => account.acctNumber === accountNumber);
 
-    if (acctID > -1) {
+    // const acctID = accounts.findIndex(account => parseInt(account.acctNumber, 10) === accountNumber);
+    const acctID = accountNumber;
+    if (acctID !== -1) {
       accounts[acctID].status = status;
 
-      res.status(201).json({
-        status: 201,
+      res.status(202).json({
+        status: 202,
         data: {
           accountNumber: accounts[acctID].acctNumber,
           status: accounts[acctID].status,
