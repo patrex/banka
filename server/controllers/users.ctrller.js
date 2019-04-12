@@ -4,10 +4,10 @@ import bcrypt from 'bcrypt';
 import users from '../models/users';
 
 export default class {
-  sayHi(req, res) {
-    res.status(200).json({
+  getAll(req, res) {
+    return res.status(200).json({
       status: 200,
-      message: 'Hello, there...',
+      data: users,
     });
   }
 
