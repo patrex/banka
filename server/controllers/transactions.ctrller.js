@@ -4,6 +4,13 @@ import accounts from '../models/accounts';
 import transactions from '../models/transactions';
 
 export default class {
+  getAll(req, res) {
+    return res.status(200).json({
+      status: 200,
+      data: transactions,
+    });
+  }
+
   debitAcct(req, res) {
     const { accountNumber } = req.params;
     const { amount, cashierID, transType } = req.body;
