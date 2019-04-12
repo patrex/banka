@@ -19,9 +19,6 @@ router.post('/signup', (req, res) => {
   const userID = users.length;
   const username = req.body.fname.toLowerCase() + userID;
   const saltRounds = 10;
-  // const rpassword = bcrypt.hashSync(req.body.rpwd, saltRounds);
-
-  // res.send(password);
 
   const user = {
     userID,
@@ -63,6 +60,35 @@ router.post('/signup', (req, res) => {
         });
       });
   });
+});
+
+router.post('/signin', (req, res) => {
+  const { uname, pwd } = req.body;
+
+  const userID = users.findIndex(user => user.username === uname);
+
+  if (userID >= 0) {
+    bcrypt.compare(pwd, users[userID].password).then((rez) => {
+      if (rez === true) {
+        return res.status(200).json({
+          status: 200,
+          data: {
+            token: users[userID].token,
+            firstname: users[userID].firstname,
+            lastname: users[userID].lastname,
+            username: users[userID].username,
+            email: users[userID].email,
+          },
+        });
+      }
+      res.status(500).json({
+        status: 500,
+        data: {
+          message: 'Sorry. We could not verify the information you provided',
+        },
+      });
+    });
+  } else res.json({ message: 'UserID not found!' });
 });
 
 module.exports = router;
