@@ -27,6 +27,7 @@ router.post('/signup', (req, res) => {
     lname: req.body.lname,
     username,
     email: req.body.email,
+    userType: req.body.type, // normal, cashier, admin
   };
 
   bcrypt.hash(req.body.pwd, saltRounds).then((hash) => {
@@ -47,15 +48,16 @@ router.post('/signup', (req, res) => {
           lastname: users[userID].lastname,
           username: users[userID].username,
           email: users[userID].email,
+          userType: users[userID].userType,
         },
       });
     })
-      .catch((err) => {
+      .catch(() => {
         res.status(500).json({
           status: 500,
           data: {
+            status: 500,
             message: 'The account could not be created at this time',
-            err_body: err,
           },
         });
       });
@@ -84,6 +86,7 @@ router.post('/signin', (req, res) => {
       res.status(500).json({
         status: 500,
         data: {
+          status: 500,
           message: 'Sorry. We could not verify the information you provided',
         },
       });
