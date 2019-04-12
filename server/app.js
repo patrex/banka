@@ -1,7 +1,7 @@
 import express from 'express';
 import users from './routes/users.router';
 import accounts from './routes/accounts.router';
-import transactions from './routes/transactions.router';
+// import transactions from './routes/transactions.router';
 
 const app = express();
 
