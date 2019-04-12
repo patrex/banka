@@ -54,10 +54,16 @@ export default class {
     Joi.validate(account, schema)
       .then(() => {
         const acctNum = `0${Math.ceil(Math.random() * 10e8 + 1)}`;
+
         account.acctNumber = acctNum;
         account.id = acctID;
         account.status = 'pending';
+        account.balance = openingBalance;
+        account.owner = req.body.owner;
+        account.createdOn = Date.now();
+
         accounts.push(account);
+
         res.status(200).json({
           status: 200,
           data: {
@@ -67,7 +73,7 @@ export default class {
             email: accounts[acctID].email,
             type: accounts[acctID].acctType,
             status: accounts[acctID].status,
-            openingBalance: accounts[acctID].openingBalance,
+            openingBalance: accounts[acctID].balance,
           },
         });
       })

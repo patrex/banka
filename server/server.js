@@ -2,6 +2,7 @@ import app from './app';
 
 const port = 3000 || process.env.PORT;
 
-app.listen(port, () => {
+module.exports = app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`App started at localhost:${port}`);
 });

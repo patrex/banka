@@ -14,7 +14,9 @@ export default class {
   createUser(req, res) {
     const userID = users.length;
     const username = req.body.fname.toLowerCase() + userID;
-    const saltRounds = 10;
+
+    const saltRounds = 10; // salt for encrypting password
+
     const user = {
       userID,
       firstname: req.body.fname,
@@ -25,36 +27,33 @@ export default class {
       userType: req.body.type, // normal, cashier, admin
     };
     bcrypt.hash(req.body.pwd, saltRounds).then((hash) => {
-      user.password = hash;
+      user.password = hash; // store encrypted password in user object
     }).then(() => {
       bcrypt.hash(req.body.rpwd, saltRounds).then((hash) => {
         user.rpassword = hash;
       }).then(() => {
         const token = jwt.sign(user, 's3cr3t');
         user.token = token;
+
         users.push(user);
-      }).then(() => {
-        res.status(200).json({
-          status: 200,
+      }).then(() => res.status(201).json({ // user was created
+        status: 201,
+        data: {
+          token: users[userID].token,
+          firstname: users[userID].firstname,
+          lastname: users[userID].lastname,
+          username: users[userID].username,
+          email: users[userID].email,
+          userType: users[userID].userType,
+        },
+      }))
+        .catch(() => res.status(500).json({
+          status: 500,
           data: {
-            token: users[userID].token,
-            firstname: users[userID].firstname,
-            lastname: users[userID].lastname,
-            username: users[userID].username,
-            email: users[userID].email,
-            userType: users[userID].userType,
-          },
-        });
-      })
-        .catch(() => {
-          res.status(500).json({
             status: 500,
-            data: {
-              status: 500,
-              message: 'The account could not be created at this time',
-            },
-          });
-        });
+            error: 'The account could not be created at this time',
+          },
+        }));
     });
   }
 
