@@ -3,6 +3,14 @@ import Joi from 'joi';
 import accounts from '../models/accounts';
 
 export default class {
+  getAll(req, res) {
+    return res.status(200).json({
+      status: 200,
+      data: accounts,
+    });
+  }
+
+
   createAccount(req, res) {
     const acctID = accounts.length;
 
