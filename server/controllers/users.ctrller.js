@@ -13,23 +13,23 @@ export default class {
 
   createUser(req, res) {
     const userID = users.length;
-    const username = req.body.fname.toLowerCase() + userID;
+    // const username = req.body.fname.toLowerCase() + userID;
 
     const saltRounds = 10; // salt for encrypting password
 
     const user = {
       userID,
-      firstname: req.body.fname,
-      midname: req.body.mname,
-      lname: req.body.lname,
-      username,
+      firstname: req.body.firstname,
+      middlename: req.body.middlename,
+      lastname: req.body.lastname,
+      username: req.body.username.toLowerCase() + userID,
       email: req.body.email,
       userType: req.body.type, // normal, cashier, admin
     };
-    bcrypt.hash(req.body.pwd, saltRounds).then((hash) => {
+    bcrypt.hash(req.body.password, saltRounds).then((hash) => {
       user.password = hash; // store encrypted password in user object
     }).then(() => {
-      bcrypt.hash(req.body.rpwd, saltRounds).then((hash) => {
+      bcrypt.hash(req.body.rpassword, saltRounds).then((hash) => {
         user.rpassword = hash;
       }).then(() => {
         const token = jwt.sign(user, 's3cr3t');
@@ -41,10 +41,10 @@ export default class {
         data: {
           token: users[userID].token,
           firstname: users[userID].firstname,
-          lastname: users[userID].lname,
+          lastname: users[userID].lastname,
           username: users[userID].username,
           email: users[userID].email,
-          userType: users[userID].userType,
+          type: users[userID].userType,
         },
       }))
         .catch(() => res.status(500).json({
@@ -58,17 +58,17 @@ export default class {
   }
 
   signIn(req, res) {
-    const { uname, pwd } = req.body;
-    const userID = users.findIndex(user => user.username === uname);
+    const { username, password } = req.body;
+    const userID = users.findIndex(user => user.username === username);
     if (userID >= 0) {
-      bcrypt.compare(pwd, users[userID].password).then((rez) => {
+      bcrypt.compare(password, users[userID].password).then((rez) => {
         if (rez === true) {
           return res.status(200).json({
             status: 200,
             data: {
               token: users[userID].token,
               firstname: users[userID].firstname,
-              lastname: users[userID].lname,
+              lastname: users[userID].lastname,
               username: users[userID].username,
               email: users[userID].email,
             },

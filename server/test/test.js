@@ -3,7 +3,6 @@
 import chai from 'chai';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import request from 'supertest';
-import assert from 'assert';
 import app from '../server';
 
 
@@ -61,13 +60,14 @@ describe('GET /api/v1/auth', () => {
 // eslint-disable-next-line no-undef
 describe('POST /signup', () => {
   const user = {
-    fname: 'Buoy',
-    mname: 'Jason',
-    lname: 'Whyte',
+    firstname: 'Buoy',
+    middlename: 'Jason',
+    lastname: 'Whyte',
     email: 'buoy.jason@ch.com',
-    pwd: 'hallmark',
-    rpwd: 'hallmark',
+    password: 'hallmark',
+    rpassword: 'hallmark',
     type: 'cashier',
+    username: 'grunt',
   };
 
   // eslint-disable-next-line no-undef
@@ -91,7 +91,7 @@ describe('POST /signup', () => {
         expect(response.body).to.have.property('data').to.have.property('firstname');
         expect(response.body).to.have.property('data').to.have.property('lastname');
         expect(response.body).to.have.property('data').to.have.property('email');
-        expect(response.body).to.have.property('data').to.have.property('userType');
+        expect(response.body).to.have.property('data').to.have.property('type');
         done();
       });
   });
@@ -107,7 +107,7 @@ describe('POST /signup', () => {
         expect(response.body).to.have.property('data').to.have.property('firstname').to.not.be.empty;
         expect(response.body).to.have.property('data').to.have.property('lastname').to.not.be.empty;
         expect(response.body).to.have.property('data').to.have.property('email').to.not.be.empty;
-        expect(response.body).to.have.property('data').to.have.property('userType').to.not.be.empty;
+        expect(response.body).to.have.property('data').to.have.property('type').to.not.be.empty;
         done();
       });
   });
@@ -116,8 +116,8 @@ describe('POST /signup', () => {
 describe('POST /signin', () => {
   // eslint-disable-next-line no-undef
   const login = {
-    uname: 'buoy0',
-    pwd: 'hallmark',
+    username: 'grunt0',
+    password: 'hallmark',
   };
   it('user should be able to signin', (done) => {
     request(app)
@@ -357,7 +357,7 @@ describe('POST /transactions/:account-number/debit', () => {
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .end((err, response) => {
-        assert(response.body.oldBalance);
+    
         done();
       });
   });
