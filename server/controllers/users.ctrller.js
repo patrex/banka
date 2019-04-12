@@ -1,7 +1,9 @@
 /* eslint-disable class-methods-use-this */
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import config from 'config';
 import users from '../models/users.model';
+
 
 export default class {
   getAll(req, res) {
@@ -32,7 +34,7 @@ export default class {
       bcrypt.hash(req.body.rpassword, saltRounds).then((hash) => {
         user.rpassword = hash;
       }).then(() => {
-        const token = jwt.sign(user, 's3cr3t');
+        const token = jwt.sign(user, config.get('keys.jwtKey'));
         user.token = token;
 
         users.push(user);
