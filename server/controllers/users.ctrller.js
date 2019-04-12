@@ -41,7 +41,7 @@ export default class {
         data: {
           token: users[userID].token,
           firstname: users[userID].firstname,
-          lastname: users[userID].lastname,
+          lastname: users[userID].lname,
           username: users[userID].username,
           email: users[userID].email,
           userType: users[userID].userType,
@@ -68,7 +68,7 @@ export default class {
             data: {
               token: users[userID].token,
               firstname: users[userID].firstname,
-              lastname: users[userID].lastname,
+              lastname: users[userID].lname,
               username: users[userID].username,
               email: users[userID].email,
             },
