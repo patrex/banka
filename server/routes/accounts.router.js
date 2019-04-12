@@ -101,4 +101,29 @@ router.patch('/:accountNumber(\\d+)', (req, res) => {
   }
 });
 
+router.delete('/:accountNumber(\\d+)', (req, res) => {
+  const { accountNumber } = req.params;
+
+  const acctID = accounts.findIndex(account => account.acctNumber === accountNumber);
+
+  if (acctID !== -1) {
+    if (accounts.splice(acctID)) {
+      res.status(200).json({
+        status: 200,
+        message: 'Account successfully deleted',
+      });
+    } else {
+      res.status(500).json({
+        status: 500,
+        message: 'Sorry, you pushed the right buttons but we couldn\'t delete the account',
+      });
+    }
+  } else {
+    res.status(404).json({
+      status: 404,
+      error: 'We could not find that account. Check it up and retry...',
+    });
+  }
+});
+
 module.exports = router;
