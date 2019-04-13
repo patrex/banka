@@ -212,10 +212,6 @@ main {
         display: inline;
     }
 
-    .btn-2 {
-
-    }
-
     .btn-2:hover {
         background-color: red;
         color: #fff
