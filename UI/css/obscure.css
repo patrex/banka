@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+main h2, h5 {
+    padding: 1em;
+}
+
+main h5 {
+    font-size: 1em;
+}
+
+div.acct-info h3, h4{
+    display: inline;
+}
+
+.acct-info {
+    padding: 1em;
+    line-height: 1.5;
+    margin: 1em;
+}

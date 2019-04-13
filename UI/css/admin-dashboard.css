@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 body, html{
     height: calc(100% - 2em);
     margin: 0;
     background-color: #e3e5e9;
+    font-family: Roboto, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 aside {
@@ -187,7 +189,6 @@ input[type='number'] {
     font-weight: bold;
     font-size: 120%;
     margin: 1em 0;
-    color: #3b5998;
 }
 
 
@@ -262,7 +263,6 @@ input[type='number'] {
         font-weight: bold;
         font-size: 120%;
         margin: 1em 0;
-        color: #3b5998;
     }
 
     main {
