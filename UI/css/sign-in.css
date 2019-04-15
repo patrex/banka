@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 body {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 10% 45% 10% 20%;
+    grid-template-rows: 10% 75% 5% 10%;
     grid-template-areas: 
         "logo"
         "form"
         "sos"
         "footer";
     background-color: #eee;
-    min-height: 750px;
+    min-height: 500px;
+    font-family: Roboto, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .logo {
@@ -40,7 +42,6 @@ body {
     /* width: 60%; */
     grid-area: form;
     background-color: white;
-    color: #3b5998;
     border: .1em solid grey;
     margin: 5px auto;
     padding: 1em 2em;
@@ -77,7 +78,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: #e48d48 solid 1px;
+    margin-top: 2em;
 }
 
 a.bannr {
@@ -88,14 +89,13 @@ a.bannr {
     cursor: pointer;
     text-decoration: none;
     color: #3b5998;
-    font-size: 3em;
+    font-size: 2em;
 }
 
 input[type='password'], input[type='text']  {
     display: block;
     height: 2em;
     padding-left: 2px;
-    border-radius: .3em;
     margin: .5em 0 1.5em 0;
     width: 90%;
 }
@@ -127,6 +127,7 @@ input[type='password'], input[type='text']  {
 
 em.reg-msg {
     padding: 1em;
+    text-align: center;
 }
 
 
@@ -232,14 +233,14 @@ ul.nav-ul li.menu-bar {
     } */
     body {
         grid-template-columns: auto;
-        grid-template-rows: 10% 60% 5% 20%;
+        grid-template-rows: 10% 75% 5% 5%;
         grid-template-areas: 
             "logo"
             "form"
             "sos"
             "footer";
         background-color: #eee;
-        min-height: 750px;
+        min-height: 500px;
     }
     
 }
