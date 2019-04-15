@@ -22,3 +22,4 @@ If you have downloaded this repo to your local machine, you can set up banka:
     ```javascript
     npm start
     ```
+https://travis-ci.org/patrex/banka.svg?branch=develop
