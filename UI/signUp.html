@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign up</title>
+
+    <link rel="stylesheet" href="css/userSignUp.css">
+</head>
+<body>
+    <nav>
+        <a href="./index.html" class="bannr">Banka</a>
+    </nav>
+
+    <main>
+        <form action="./usr-view-prof.html">
+            <div>
+                <em class="reg-prompt">Sign up</em> 
+                <!-- <h4 class="heading">First name</h4> -->
+                <label for="firstname" class="heading">Firstname</label>
+                <input type="text" name="firstname" id="firstname" required>
+
+                <!-- <h4 class="heading">Middle name</h4> -->
+                <label for="middlename" class="heading">Middlename</label>
+                <input type="text" name="middlename" id="middlename">
+
+                <!-- <h4 class="heading">Last name</h4> -->
+                <label for="lastname" class="heading">Lastname</label>
+                <input type="text" name="lastname" id="lastname" required> 
+
+                <!-- <h4 class="heading">Email</h4> -->
+                <label for="email" class="heading">Email</label>
+                <input type="email" name="email" id="email" required>
+
+                <!-- <h4 class="heading">Choose a password</h4> -->
+                <label for="password" class="heading">Choose Password</label>
+                <input type="password" name="password" id="password">
+
+                <!-- <h4 class="heading">Re-enter password</h4> -->
+                <label for="rpassword" class="heading">Confirm password</label>
+                <input type="password" name="rpassword" id="rpassword" required>
+
+                <input class="btn" type="submit" value="Sign up">
+                <em>Already have an account? <a href="./signIn.html">Sign in</a> instead</em>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        &copy; 2019 Banka Inc. All rights reserved.  
+    </footer>
+</body>
+</html>
