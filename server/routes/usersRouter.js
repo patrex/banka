@@ -1,6 +1,6 @@
 import express from 'express';
 import UsersCtrller from '../controllers/usersController';
-import Auth from '../middleware/usersValidator';
+import Auth from '../middlewares/usersValidator';
 
 const auth = new Auth();
 

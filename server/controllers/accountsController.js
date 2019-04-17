@@ -1,5 +1,4 @@
 /* eslint-disable class-methods-use-this */
-import Joi from 'joi';
 import accounts from '../models/accountsModel';
 
 export default class {

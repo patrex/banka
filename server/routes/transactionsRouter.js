@@ -1,6 +1,6 @@
 import express from 'express';
 import TransCtrller from '../controllers/transactionsController';
-import TransValid from '../middleware/transactionsValidator';
+import TransValid from '../middlewares/transactionsValidator';
 
 const transValid = new TransValid();
 const transCtrller = new TransCtrller();

@@ -1,6 +1,6 @@
 import express from 'express';
 import AcctCtrller from '../controllers/accountsController';
-import AcctVal from '../middleware/accountsValidator';
+import AcctVal from '../middlewares/accountsValidator';
 
 const acctVal = new AcctVal();
 
