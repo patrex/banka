@@ -10,6 +10,13 @@ export default app;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 200,
+    message: 'welcome to banka apis',
+  });
+});
+
 app.use('/api/v1/auth', users);
 app.use('/api/v1/accounts', accounts);
 app.use('/api/v1/transactions', transactions);
