@@ -27,7 +27,7 @@
     "supertest": "^4.0.2"
   },
   "scripts": {
-    "test": "nyc mocha ./build/test/test.js --exit",
+    "test": "npm run build && nyc mocha ./build/test/test.js --exit",
     "build": "babel ./server -d ./build",
     "start": "npm run build && node ./build/server",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
