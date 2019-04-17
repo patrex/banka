@@ -21,7 +21,7 @@ app.use('/api/v1/auth', users);
 app.use('/api/v1/accounts', accounts);
 app.use('/api/v1/transactions', transactions);
 
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT;
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
