@@ -39,6 +39,16 @@ nav {
   float: right;
 }
 
+a.logo {
+  font-size: 130%;
+  font-weight: bold;
+  margin: 0 10px;
+  float: right;
+  color: #fff;
+  text-decoration: none;
+  display: inline;
+}
+
 .x-close {
   float: left;
   display: none;
@@ -52,7 +62,7 @@ nav ul {
   /* background-color: antiquewhite; */
   padding: 0;
   width: 100%;
-  margin: 0 auto;
+  margin: 2em auto;
   height: 100%;
   background-color: rgba(250, 235, 215, .85);
 }
@@ -237,6 +247,7 @@ div.right {
     display: block;
     padding: 0;
     background-color: #3b5998;
+    margin: 0
   }
 
   nav ul li {
@@ -250,7 +261,7 @@ div.right {
     margin: 1em 1em .5em 0;
   }
 
-  .logo {
+  a.logo {
     font-size: 200%;
     font-weight: bold;
     margin: auto 10% auto .5em;

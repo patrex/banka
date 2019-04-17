@@ -1,7 +1,7 @@
-const menuBar = document.querySelector('#menu-btn'),
-  list = document.querySelector('ul'),
-  closeBtn = document.querySelector('.close'),
-  xClose = document.querySelector('.x-close');
+const menuBar = document.querySelector('#menu-btn');
+const list = document.querySelector('ul');
+const closeBtn = document.querySelector('.close');
+const xClose = document.querySelector('.x-close');
 
 menuBar.addEventListener('click', (e) => {
   list.classList.toggle('active');
@@ -10,9 +10,9 @@ menuBar.addEventListener('click', (e) => {
 });
 
 xClose.addEventListener('click', (e) => {
-    list.classList.toggle('active');
-    menuBar.style.display = '';
-    xClose.style.display = '';
+  list.classList.toggle('active');
+  menuBar.style.display = '';
+  xClose.style.display = '';
 })
 
 const nairaDollar = document.querySelector('#nairaDollar');
@@ -33,7 +33,7 @@ const showCurr = () => {
       nairaJPY.innerHTML = (1 / refTabs.ngnJPY).toFixed(2);
     })
     .catch((err) => {
-      console.log(err);
+
     });
 } 
 

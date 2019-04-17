@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Catamaran');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+
 
 body, html{
-    height: 540px;
+    min-height: 560px;
     margin: 0;
-    font-family: Roboto,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: Roboto, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 aside {
@@ -13,6 +12,10 @@ aside {
     grid-template-columns: auto 40px;
     padding: 2em;
     background-color: #3b5998;
+}
+
+#thename {
+    text-transform: capitalize;
 }
 
 figure {
@@ -87,19 +90,20 @@ nav ul li a:hover {
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
-    width: 80%;
-    margin: 1em 0;
-    height: 3em;
+    width: 40%;
+    margin: .5em 0;
+    
 }
 
 .btn:hover {
-    color: #fff;
+    color: #e48d48;
     background-color: #3b5998;
+    
 }
 
-.btn-2:hover {
-    color: #fff;
-    background-color: red;
+p#lorem {
+    padding: 1em;
+    line-height: 1.5em;
 }
 
 #menu-exit:hover {
@@ -117,6 +121,15 @@ nav ul li a:hover {
     padding: 1em;
 }
 
+/* Style for cas-credit.html */
+.cta-btn {
+    display: block;
+    width: 30%;
+    margin: 1em auto;
+    text-align: center;
+    height: 2.0em;
+    /* vertical-align: -webkit-baseline-middle; */
+}
 
 h2 {
     padding: 0;
@@ -124,54 +137,94 @@ h2 {
 }
 
 input[type='number'], input[type='text'], input[type='date'] {
-    border-radius: 5px;
     height: 1.5em;
     width: 80%;
     padding-left: 5px;
 }
+/* Styke for stf-del.html */
+
+.del {
+    border: .1em solid red;
+    display: block;
+    color: red;
+    padding: .7em;
+    margin: 1em 2em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.del:hover {
+    background-color: red;
+    color: white;
+}
+/* Style rules for create-bnk-acct.html */
+
+.btn-2 {
+    display: block;
+    width: 50%;
+    margin: .5em auto;
+    height: 3em;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1em;
+}
 
 .heading-2 {
-    display: inline-block;
+    display: block;
     font-weight: bold;
+    font-size: 120%;
     margin: 1em 0;
+}
+
+textarea {
+    border-radius: .5em;
+    width: 40%;
+    padding-left: 5px;
 }
 
 main h2 {
     padding: 0;
     margin: 0;
-    overflow: auto;
 }
 
 main {
     width: 100%;
-    padding: .6em;
 }
 
-.info {
-    font-family: 'Special Elite';
+div.form-hldr {
+    padding: 1em;
+    width: 100%;
+}
+
+textarea {
+    border-radius: .5em;
+    width: 80%;
+    margin: 0 0 1em 0;
 }
 
 @media only screen and (min-width: 480px) {
     body {
-        height: 650px;
-        display: grid;
-        grid-template-columns: 20% auto;
+      min-height: 550px;
         /* padding: 2em; */
     }
 
-    .header {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-    }
-
     aside {
+        width: 20%;
         grid-template-columns: auto;
         grid-template-rows: 40% auto;
         padding: 0;
-        /* background-color: red; */
-        /* border-right: .1em solid blue; */
         background-color: #3b5998;
+        float: left;
+        position: fixed;
+        height: 100%;
+    }
+
+    main {
+        width: 80%;
+        float: right;
+        background-color: #eee;
     }
 
     #avatar {
@@ -181,14 +234,6 @@ main {
         height: 100px;
         margin: 2em auto;
         cursor: pointer;
-    }
-
-    #img {
-        display: inline;
-    }
-
-    #thename {
-        text-transform: capitalize;
     }
 
     .profile-pic {
@@ -225,16 +270,6 @@ main {
         margin: 1em 0;
         padding: .1em;
         width: 20%;
-        display: inline;
-    }
-
-    .btn-2 {
-
-    }
-
-    .btn-2:hover {
-        background-color: red;
-        color: #fff
     }
 
     nav ul {
@@ -248,20 +283,26 @@ main {
         
     }
 
+    /* Style rules for create-bnk-acct.html */
+
+    .btn-2 {
+        display: block;
+        width: 15%;
+        margin: 1em auto;
+        height: 2em;
+    }
+
     .heading-2 {
-        display: inline-block;
+        display: block;
         font-weight: bold;
         font-size: 120%;
         margin: 1em 0;
     }
 
-    main {
-        padding: 1em;
-        /* background-color: yellow; */
-        background-color: #eee;
-        display: grid;
-        grid-template-rows: 10% 90%;
-        grid-template-columns: auto;
+    textarea {
+        border-radius: .5em;
+        width: 40%;
+        margin-bottom: 2em;
     }
 
     main h2 {
@@ -269,24 +310,23 @@ main {
         margin: 0;
     }
 
-    input[type='number'] {
-        border-radius: 5px;
+    input[type='number'], input[type='text'], input[type='date'] {
         height: 1.5em;
-        width: 30%;
+        width: 50%;
         padding-left: 5px;
     }
-    
-    .trans-info {
-        line-height: 1.5;
-        margin: 1em;
+
+    div.form-hldr {
+        margin-left: 2em;
+        width: 100%;
     }
-    
-    .trans-info h2 {
-        padding: .5em;
+
+    /* nav ul li.sos a {
+        display: none !important;
     }
-    
-    .trans-info h3, h4{
-        display: inline;
-    }
+
+    p.sos {
+        display: none;
+    } */
 }
 
