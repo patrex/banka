@@ -22,4 +22,4 @@ If you have downloaded this repo to your local machine, you can set up banka:
     ```javascript
     npm start
     ```
-[![Build Status](https://travis-ci.org/patrex/banka.svg?branch=develop)](https://travis-ci.org/patrex/banka)[![Coverage Status](https://coveralls.io/repos/github/patrex/banka/badge.svg)](https://coveralls.io/github/patrex/banka)
+[![Build Status](https://travis-ci.org/patrex/banka.svg?branch=develop)](https://travis-ci.org/patrex/banka)  [![Coverage Status](https://coveralls.io/repos/github/patrex/banka/badge.svg)](https://coveralls.io/github/patrex/banka)
