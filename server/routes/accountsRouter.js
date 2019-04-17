@@ -12,4 +12,4 @@ router.post('/', acctVal.valAcctInfo, acctCtrller.createAccount);
 router.patch('/:accountNumber(\\d+)', acctCtrller.activateDeactivate);
 router.delete('/:accountNumber(\\d+)', acctCtrller.deleteAcct);
 
-module.exports = router;
+export default router;

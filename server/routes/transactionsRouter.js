@@ -10,4 +10,4 @@ router.get('/', transCtrller.getAll);
 router.post('/:accountNumber(\\d+)/debit', transValid.valTransaction, transCtrller.debitAcct);
 router.post('/:accountNumber(\\d+)/credit', transValid.valTransaction, transCtrller.creditAcct);
 
-module.exports = router;
+export default router;

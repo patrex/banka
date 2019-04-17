@@ -11,4 +11,4 @@ router.get('/', usersCtrller.getAll);
 router.post('/signup', auth.valUserInput, usersCtrller.createUser);
 router.post('/signin', auth.valSignIn, usersCtrller.signIn);
 
-module.exports = router;
+export default router;
