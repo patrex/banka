@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import accounts from '../models/accountsModel';
 
-export default class {
+export default class Accounts {
   getAll(req, res) {
     return res.status(200).json({
       status: 200,

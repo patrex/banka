@@ -5,7 +5,7 @@ import config from 'config';
 import users from '../models/usersModel';
 
 
-export default class {
+export default class Users {
   getAll(req, res) {
     return res.status(200).json({
       status: 200,
@@ -15,7 +15,6 @@ export default class {
 
   createUser(req, res) {
     const userID = users.length;
-    // const username = req.body.fname.toLowerCase() + userID;
 
     const saltRounds = 10; // salt for encrypting password
 

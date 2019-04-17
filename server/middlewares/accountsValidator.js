@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-export default class {
+export default class AccountsValidator {
   // eslint-disable-next-line class-methods-use-this
   valAcctInfo(req, res, next) {
     const {
@@ -40,12 +40,19 @@ export default class {
       openingBalance: Joi.number().min(0.0).required(),
     });
 
-    const { error, value } = Joi.validate(account, schema);
+    const { error, value } = Joi.validate(account, schema, { abortEarly: false });
 
     if (error) {
+      const errorDetails = error.details;
+      const errorMessages = [];
+
+      for (let i in errorDetails) {
+        errorMessages[i] = (errorDetails[i].message).replace(/\"/g, '');
+      }
+
       return res.status(400).json({
         status: 400,
-        error: error.details[0].message,
+        error: errorMessages,
       });
     }
     next();

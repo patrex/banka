@@ -1,8 +1,8 @@
 /* eslint-disable class-methods-use-this */
 import Joi from 'joi';
 
-export default class {
-  valUserInput(req, res, next) {
+export default class UsersValidator {
+  validateUserInput(req, res, next) {
     const user = {
       firstname: req.body.firstname,
       middlename: req.body.middlename,
@@ -25,18 +25,25 @@ export default class {
       rpassword: Joi.string().regex(/^[a-zA-Z0-9]{6,30}$/).required(),
     });
 
-    const { error, value } = Joi.validate(user, schema);
+    const { error, value } = Joi.validate(user, schema, { abortEarly: false });
 
     if (error) {
+      const errorDetails = error.details;
+      const errorMessages = [];
+
+      for (let i in errorDetails) {
+        errorMessages[i] = (errorDetails[i].message).replace(/\"/g, '');
+      }
+
       return res.status(400).json({
         status: 400,
-        error: error.details[0].message,
+        error: errorMessages,
       });
     }
     next();
   }
 
-  valSignIn(req, res, next) {
+  validateSignIn(req, res, next) {
     const { username, password } = req.body;
 
     const schema = Joi.object().keys({

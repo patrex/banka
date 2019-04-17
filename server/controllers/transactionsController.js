@@ -3,7 +3,7 @@ import users from '../models/usersModel';
 import accounts from '../models/accountsModel';
 import transactions from '../models/transactionsModel';
 
-export default class {
+export default class Transactions {
   getAll(req, res) {
     return res.status(200).json({
       status: 200,

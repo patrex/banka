@@ -8,7 +8,7 @@ const usersCtrller = new UsersCtrller();
 const router = express.Router({ mergeParams: true });
 
 router.get('/', usersCtrller.getAll);
-router.post('/signup', auth.valUserInput, usersCtrller.createUser);
-router.post('/signin', auth.valSignIn, usersCtrller.signIn);
+router.post('/signup', auth.validateUserInput, usersCtrller.createUser);
+router.post('/signin', auth.validateSignIn, usersCtrller.signIn);
 
 export default router;
