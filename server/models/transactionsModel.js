@@ -1,1 +1,3 @@
-export default const transactions = [];
+const transactions = [];
+
+export default transactions;

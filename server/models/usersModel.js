@@ -1,1 +1,3 @@
-export default const users = [];
+const users = [];
+
+export default users;

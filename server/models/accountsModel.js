@@ -1,2 +1,3 @@
-export default const accounts = [];
+const accounts = [];
 
+export default accounts;
