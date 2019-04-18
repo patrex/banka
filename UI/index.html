@@ -44,10 +44,13 @@
               <li><span class="fa-li" ><i class="fas fa-lock"></i></span>Fast & Secure</li>
             </ul>
 
-            Enter receiving account <br>
+            <label for="accountNumber">Enter the account num</label>
             <input type="number" name="kwik-reci" id="kwik-reci" placeholder="Account number"> <br>
-            Create a unique 4-digit PIN for this transaction <br>
-            <input type="number" name="kwik-pin" id="kwik-pin" placeholder="PIN">
+            <label for="transactionType">Select type of transaction</label>
+            <select name="transactionType" id="transactionType">
+              <option value="debit">Receive Funds</option>
+              <option value="credit">Pay Someone</option>
+            </select>
             <a href="#" class="btn">Kwik Now!</a>
           </div>
         </div>
@@ -129,3 +132,11 @@
     <script src="js/landing.js"></script>
   </body>
 </html>
+
+
+
+
+<div class="receive">
+  <label for="transactionID">Transaction ID</label>
+  
+</div>
