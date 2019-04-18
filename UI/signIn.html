@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign in</title>
+
+    <link rel="stylesheet" href="css/signIn.css">
+    <link rel="stylesheet" href="css/genSmallUses.css">
+</head>
+<body>
+    <div class="logo">
+        <a href="./index.html" class="bannr">Banka</a>
+    </div>
+    
+    <div class="form">
+        <form action="./userDashboard.html" method="">
+            <em class="login-prompt">Enter your email and we'll help you reset your password</em>
+            
+            <!-- <h3 class="heading">Username</h3> -->
+            <label for="username" class="heading">Username</label>
+            <input type="text" name="username" id="username" autofocus tabindex="1"> 
+
+            <!-- <h3 class="heading">Password</h3> -->
+            <label for="password" class="heading">Password</label>
+            <input type="password" name="pwd" id="password" tabindex="2">
+            
+            <!-- <a href="#" class="subBtn">Log in</a> -->
+            <input type="submit" value="Log in" class="subBtn" tabindex="3">
+        </form>
+        <div class="reg-sec">
+            <em class="reg-msg">New to banka?  <a href="./signUp.html" tabindex="4"> Sign Up</a></em> 
+        </div>
+    </div>
+
+    <div class="sos">
+        <a href="./forgotPassword.html" tabindex="5">Forgot your password?</a>
+    </div>
+        
+    <footer>
+        &copy; 2019 Banka Inc. All rights reserved.
+    </footer>
+    
+    <script src="js/activateAccount.js"></script>
+</body>
+</html>

@@ -1,1 +1,0 @@
-const fname = document.querySelector()

@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body {
+    font-family: Roboto, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+main {
+    background-color: #eee;
+    padding: 1em;
+
+}
+
+div.form-ctnr {
+    margin: 1em auto;
+}
+
+input[type='text'] {
+    padding-left: 2px;
+    border-radius: 5px;
+    height: 1.5em;
+    width: 60%;
+}
+
+select {
+    border-radius: 5px;
+    height: 1.5em;
+}
+
+@media only screen and (max-width: 480px){
+    main {
+        display: flex;
+        flex-flow: column nowrap;
+        padding: 1em;
+    }
+}
