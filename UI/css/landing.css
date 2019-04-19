@@ -99,7 +99,7 @@ main {
   height: 100%;
   width: 100%;
   background-color: #eee;
-  background: url('https://source.unsplash.com/BeVGrXEktIk/450x450') no-repeat center center fixed;
+  background: url('https://source.unsplash.com/3fPXt37X6UQ/450x450') no-repeat center center fixed;
   color: white;
   margin: .5em auto;
   display: flex;
@@ -108,20 +108,8 @@ main {
   flex-flow: row;
 }
 
-.mob-info {
-  background-color: rgba(255, 255, 255, .80);
-  color: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-
-.mob-ad {
-  line-height: 1.5;
-  font-size: 150%;
-  padding: 1em;
+.kwik-send, .kwik-receive, .response {
+  display: none;
 }
 
 footer {
@@ -195,8 +183,8 @@ footer {
   text-align: center;
   text-decoration: none;
   border-radius: 5px;
-  width: 20%;
-  margin: .5em 0;
+  width: 30%;
+  margin: .5em 0 .5em 0;
 }
 
 .btn-2 {
@@ -211,11 +199,30 @@ footer {
 .btn:hover {
   color: #e48d48;
   background-color: whitesmoke;
- 
 }
 
 div.left {
-  display: none;
+  background-color: rgba(255, 255, 255, .80);
+  color: #3b5998;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  height: 100%;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.heading {
+  margin: 0 auto;
+  font-weight: bold;
+  display: block;
+}
+
+input[type='number'] {
+  display: block;
+  margin: 5px 0 5px 0;
+  width: 80%;
+  padding: 0;
 }
 
 div.right {
@@ -304,6 +311,21 @@ div.right {
     grid-template-areas: 
       "left"
       "right"; 
+  }
+
+  .kwik-send, .kwik-receive, .response {
+    display: none;
+  }
+
+  .heading {
+    margin: .3em auto;
+    display: block;
+    font-weight: bold;
+}
+
+  input[type='number'] {
+    width: 50%;
+    height: 1em;
   }
 
   .mob-info {
