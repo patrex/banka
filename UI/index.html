@@ -36,9 +36,9 @@
               <li><span class="fa-li" ><i class="fas fa-lock"></i></span>Fast & Secure</li>
             </ul>
 
-            <label for="kwikTransactionType">Select type of transaction</label>
+            <label for="kwikTransactionType">Select type of transaction</label> <br>
             <select name="kwikTransactionType" id="kwikTransactionType">
-              <option value="" selected="selected">Choose type</option>
+              <option value="" selected>Choose type</option>
               <option value="receive">Receive Funds</option>
               <option value="send">Pay Someone</option>
             </select>
@@ -46,18 +46,19 @@
               <p class="response-message">Success or fail</p>
             </div>
             <div class="kwik-receive">
-              <label for="kwikTransactionID" class="heading">Transaction ID</label>
-              <input type="text" name="kwikTransactionID" id="kwikTransactionID">
+                <label for="kwikTransactionID" class="heading">Transaction ID</label>
+                <input type="text" name="kwikTransactionID" id="kwik-transaction-id">
+                
             </div>
             <div class="kwik-send">
-              <label for="account-number" class="heading">Enter the account number</label>
-              <input type="number" name="kwik-account-number" id="kwik-account-number">
-  
-              <label for="kwik-transaction-amount" class="heading">Enter the amount to transfer</label>
-              <input type="number" name="kwik-transaction-amount" id="kwik-transaction-amount">
+                <label for="account-number" class="heading">Enter the account number</label>
+                <input type="number" name="kwik-account-number" id="kwik-account-number">
+    
+                <label for="kwik-transaction-amount" class="heading">Enter the amount to transfer</label>
+                <input type="number" name="kwik-transaction-amount" id="kwik-transaction-amount">
             </div>
+            <button type="submit" class="btn" id="subBtn">Kwik Now</button>
             <!-- <a href="#" class="btn" ></a> -->
-            <button class="btn" id="kwik-submit">Kwik Now!</button>
           </div>
         </div>
       </div>
