@@ -2,7 +2,7 @@
 import accounts from '../models/accountsModel';
 
 export default class Accounts {
-  getAll(req, res) {
+  getAllAccounts(req, res) {
     return res.status(200).json({
       status: 200,
       data: accounts,
@@ -11,13 +11,13 @@ export default class Accounts {
 
 
   createAccount(req, res) {
-    const acctID = accounts.length;
+    const accountID = accounts.length;
 
     const {
       firstname, middlename, lastname,
-      dob, email, phone, houseNum,
+      dob, email, phone, houseNumber,
       streetName, city, state,
-      acctType, openingBalance,
+      accountType, openingBalance,
     } = req.body;
 
     const account = {
@@ -27,17 +27,17 @@ export default class Accounts {
       dob,
       email,
       phone,
-      houseNum,
+      houseNumber,
       streetName,
       city,
       state,
-      acctType,
+      accountType,
       openingBalance,
     };
     const acctNum = `${accounts.length}`;
 
     account.acctNumber = acctNum;
-    account.id = acctID;
+    account.id = accountID;
     account.status = 'pending';
     account.balance = openingBalance;
     account.owner = req.body.owner;
@@ -48,13 +48,13 @@ export default class Accounts {
     res.status(201).json({
       status: 201,
       data: {
-        accountNumber: parseInt(accounts[acctID].acctNumber, 10),
-        firstname: accounts[acctID].firstname,
-        lastname: accounts[acctID].lastname,
-        email: accounts[acctID].email,
-        type: accounts[acctID].acctType,
-        status: accounts[acctID].status,
-        openingBalance: accounts[acctID].balance,
+        accountNumber: parseInt(accounts[accountID].acctNumber, 10),
+        firstname: accounts[accountID].firstname,
+        lastname: accounts[accountID].lastname,
+        email: accounts[accountID].email,
+        type: accounts[accountID].accountType,
+        status: accounts[accountID].status,
+        openingBalance: accounts[accountID].balance,
       },
     });
   }
@@ -63,15 +63,15 @@ export default class Accounts {
     const { accountNumber } = req.params;
     const { status } = req.body;
 
-    const acctID = accountNumber;
-    if (acctID !== -1) {
-      accounts[acctID].status = status;
+    const accountID = accountNumber;
+    if (accountID !== -1) {
+      accounts[accountID].status = status;
 
       res.status(202).json({
         status: 202,
         data: {
-          accountNumber: accounts[acctID].acctNumber,
-          status: accounts[acctID].status,
+          accountNumber: accounts[accountID].acctNumber,
+          status: accounts[accountID].status,
         },
       });
     } else {
@@ -85,9 +85,9 @@ export default class Accounts {
   deleteAccount(req, res) {
     const { accountNumber } = req.params;
 
-    const acctID = accounts.findIndex(account => account.acctNumber === accountNumber);
-    if (acctID !== -1) {
-      if (accounts.splice(acctID)) {
+    const accountID = accounts.findIndex(account => account.acctNumber === accountNumber);
+    if (accountID !== -1) {
+      if (accounts.splice(accountID)) {
         res.status(200).json({
           status: 200,
           message: 'Account successfully deleted',
