@@ -1,13 +1,13 @@
 import express from 'express';
-import TransCtrller from '../controllers/transactionsController';
-import TransValid from '../middlewares/transactionsValidator';
+import TransactionController from '../controllers/transactionsController';
+import TransactionValidator from '../middlewares/transactionsValidator';
 
-const transValid = new TransValid();
-const transCtrller = new TransCtrller();
+const transactionValidator = new TransactionValidator();
+const transactionController = new TransactionController();
 const router = express.Router({ mergeParams: true });
 
-router.get('/', transCtrller.getAll);
-router.post('/:accountNumber(\\d+)/debit', transValid.valTransaction, transCtrller.debitAcct);
-router.post('/:accountNumber(\\d+)/credit', transValid.valTransaction, transCtrller.creditAcct);
+router.get('/', transactionController.getAll);
+router.post('/:accountNumber(\\d+)/debit', transactionValidator.validateTransaction, transactionController.debitAccount);
+router.post('/:accountNumber(\\d+)/credit', transactionValidator.valTransaction, transactionController.creditAcct);
 
 export default router;
