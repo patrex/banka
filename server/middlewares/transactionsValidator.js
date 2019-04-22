@@ -2,7 +2,7 @@
 import Joi from 'joi';
 
 export default class TransactionsValidator {
-  valTransaction(req, res, next) {
+  validateTransaction(req, res, next) {
     const { amount, cashierID, transactionType } = req.body;
     const { accountNumber } = req.params;
 
@@ -12,7 +12,7 @@ export default class TransactionsValidator {
       transactionType: Joi.string().min(3).required(),
       accountNumber: Joi.number().min(0).required(),
     });
-    const { error, value } = Joi.validate({
+    const { error } = Joi.validate({
       amount, cashierID, transactionType, accountNumber,
     }, schema);
 
