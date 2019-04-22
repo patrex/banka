@@ -30,7 +30,8 @@
     "test": "npm run build && nyc mocha ./build/test/test.js --exit",
     "build": "babel ./server -d ./build",
     "start": "npm run build && node ./build/server",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "eslint server/**/*.js --ignore-pattern test/"
   },
   "repository": {
     "type": "git",
