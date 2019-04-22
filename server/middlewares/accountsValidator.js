@@ -2,12 +2,12 @@ import Joi from 'joi';
 
 export default class AccountsValidator {
   // eslint-disable-next-line class-methods-use-this
-  valAcctInfo(req, res, next) {
+  validateAccountInfo(req, res, next) {
     const {
       firstname, middlename, lastname,
       dob, email, phone, houseNum,
       streetName, city, state,
-      acctType, openingBalance,
+      accountType, openingBalance,
     } = req.body;
 
     const account = {
@@ -21,7 +21,7 @@ export default class AccountsValidator {
       streetName,
       city,
       state,
-      acctType,
+      accountType,
       openingBalance,
     };
 
@@ -36,7 +36,7 @@ export default class AccountsValidator {
       streetName: Joi.string().required(),
       city: Joi.string().required(),
       state: Joi.string().min(6).required(),
-      acctType: Joi.string().min(7).required(),
+      accountType: Joi.string().min(7).required(),
       openingBalance: Joi.number().min(0.0).required(),
     });
 
