@@ -4,11 +4,23 @@ import accounts from '../models/accountsModel';
 import transactions from '../models/transactionsModel';
 
 export default class Transactions {
-  getAll(req, res) {
-    return res.status(200).json({
-      status: 200,
-      data: transactions,
+  async getOneTransaction(req, res) {
+    const { transactionID } = req.params;
+    const results = await transactionsModel.getOneTransaction({
+      transactionID,
     });
+
+    if (results.success) {
+      res.status(200).json({
+        status: 200,
+        data: results.success.rows,
+      });
+    } else if (results.failure) {
+      res.status(400).json({
+        status: 400,
+        message: results.failure.detail,
+      });
+    }
   }
 
   debitAcct(req, res) {
