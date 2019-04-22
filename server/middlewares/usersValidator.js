@@ -11,7 +11,6 @@ export default class UsersValidator {
       userType: req.body.type, // normal, cashier, admin
       username: req.body.username,
       password: req.body.password,
-      rpassword: req.body.rpassword,
     };
 
     const schema = Joi.object().keys({
@@ -22,10 +21,9 @@ export default class UsersValidator {
       email: Joi.string().email().required(),
       userType: Joi.string().min(5).required(),
       password: Joi.string().regex(/^[a-zA-Z0-9]{6,30}$/).required(),
-      rpassword: Joi.string().regex(/^[a-zA-Z0-9]{6,30}$/).required(),
     });
 
-    const { error, value } = Joi.validate(user, schema, { abortEarly: false });
+    const { error } = Joi.validate(user, schema, { abortEarly: false });
 
     if (error) {
       const errorDetails = error.details;
@@ -51,7 +49,7 @@ export default class UsersValidator {
       password: Joi.string().regex(/^[a-zA-Z0-9]{6,30}$/).required(),
     });
 
-    const { error, value } = Joi.validate({ username, password }, schema);
+    const { error } = Joi.validate({ username, password }, schema);
 
     if (error) {
       return res.status(400).json({
