@@ -27,6 +27,6 @@ const getUser = () => {
       username.innerHTML = `${user.results[0].name.first} ${(user.results[0].name.last)}`
     })
     // eslint-disable-next-line arrow-parens
-    .catch((err )=> {
+    .catch((err)=> {
     });
 }

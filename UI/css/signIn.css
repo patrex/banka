@@ -37,8 +37,6 @@ body {
     align-items: center;
 }
 
-
-
 .form {
     /* width: 60%; */
     grid-area: form;
@@ -64,13 +62,16 @@ body {
 .subBtn {
     /* width: 2em; */
     margin: 1em auto;
-    background-color: #e48d48;
     text-decoration: none;
     display: block;
     padding: .5em;
-    color: white;
     text-align: center;
     border-radius: .5em;
+}
+
+.subBtn:hover {
+    background-color: #e48d48;
+    color: white;
 }
 
 footer {

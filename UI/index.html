@@ -24,31 +24,41 @@
     </nav>
 
     <main>
-      <div class="mob-info">
-        <p class="mob-ad">
-          With over 500 branches nationwide, <br>
-          we are poised to serve you at your doorstep. <br>
-          Choose from our numerous banking options <br>
-          and never feel left out. 
-        </p>
-      </div>
       <div class="left">
         <div class="headr">
           <p>Do a Kwik transaction</p>
           <p>Use Kwik to avoid the hassle of opening
             a regular bank account.</p>
-          <div class="lft-body">
+          <div class="left-body">
             <ul class="fa-ul">
               <li><span class="fa-li" ><i class="fas fa-check-square"></i></span>No Records</li>
               <li><span class="fa-li" ><i class="far fa-clock"></i></span>Save time</li>
               <li><span class="fa-li" ><i class="fas fa-lock"></i></span>Fast & Secure</li>
             </ul>
 
-            Enter receiving account <br>
-            <input type="number" name="kwik-reci" id="kwik-reci" placeholder="Account number"> <br>
-            Create a unique 4-digit PIN for this transaction <br>
-            <input type="number" name="kwik-pin" id="kwik-pin" placeholder="PIN">
-            <a href="#" class="btn">Kwik Now!</a>
+            <label for="kwikTransactionType">Select type of transaction</label> <br>
+            <select name="kwikTransactionType" id="kwikTransactionType">
+              <option value="" selected>Choose type</option>
+              <option value="receive">Receive Funds</option>
+              <option value="send">Pay Someone</option>
+            </select>
+            <div class="response">
+              <p class="response-message">Success or fail</p>
+            </div>
+            <div class="kwik-receive">
+                <label for="kwikTransactionID" class="heading">Transaction ID</label>
+                <input type="text" name="kwikTransactionID" id="kwik-transaction-id">
+                
+            </div>
+            <div class="kwik-send">
+                <label for="account-number" class="heading">Enter the account number</label>
+                <input type="number" name="kwik-account-number" id="kwik-account-number">
+    
+                <label for="kwik-transaction-amount" class="heading">Enter the amount to transfer</label>
+                <input type="number" name="kwik-transaction-amount" id="kwik-transaction-amount">
+            </div>
+            <button type="submit" class="btn" id="subBtn">Kwik Now</button>
+            <!-- <a href="#" class="btn" ></a> -->
           </div>
         </div>
       </div>
