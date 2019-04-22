@@ -1,14 +1,14 @@
 import express from 'express';
-import UsersCtrller from '../controllers/usersController';
+import UsersController from '../controllers/usersController';
 import Auth from '../middlewares/usersValidator';
 
 const auth = new Auth();
 
-const usersCtrller = new UsersCtrller();
+const usersController = new UsersController();
 const router = express.Router({ mergeParams: true });
 
-router.get('/', usersCtrller.getAll);
-router.post('/signup', auth.validateUserInput, usersCtrller.createUser);
-router.post('/signin', auth.validateSignIn, usersCtrller.signIn);
+router.get('/', usersController.getAll);
+router.post('/signup', auth.validateUserInput, usersController.createUser);
+router.post('/signin', auth.validateSignIn, usersController.signIn);
 
 export default router;
