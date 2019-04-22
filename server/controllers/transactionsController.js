@@ -4,7 +4,6 @@ import accounts from '../models/accountsModel';
 import transactions from '../models/transactionsModel';
 
 export default class TransactionsController {
-  getAll(req, res) {
     async getAllTransactions(req, res) {
       const results = await transactionsModel.listAllTransactions();
   
