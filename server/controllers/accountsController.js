@@ -59,11 +59,10 @@ export default class Accounts {
     });
   }
 
-  activateDeactivate(req, res) {
+  activateDeactivateAccount(req, res) {
     const { accountNumber } = req.params;
     const { status } = req.body;
 
-    // const acctID = accounts.findIndex(account => parseInt(account.acctNumber, 10) === accountNumber);
     const acctID = accountNumber;
     if (acctID !== -1) {
       accounts[acctID].status = status;
@@ -83,7 +82,7 @@ export default class Accounts {
     }
   }
 
-  deleteAcct(req, res) {
+  deleteAccount(req, res) {
     const { accountNumber } = req.params;
 
     const acctID = accounts.findIndex(account => account.acctNumber === accountNumber);
