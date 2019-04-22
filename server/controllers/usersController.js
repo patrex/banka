@@ -6,7 +6,7 @@ import users from '../models/usersModel';
 
 
 export default class Users {
-  getAll(req, res) {
+  getAllUsers(req, res) {
     return res.status(200).json({
       status: 200,
       data: users,
