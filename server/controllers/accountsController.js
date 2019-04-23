@@ -4,7 +4,7 @@ import AccountsModel from '../models/accountsModel';
 const accountsModel = new AccountsModel();
 
 export default class AccountsController {
-    async getAllAccounts(req, res) {
+  async getAllAccounts(req, res) {
     const { status } = req.query;
     const results = await accountsModel.listAllAccounts(status);
 
@@ -21,8 +21,9 @@ export default class AccountsController {
         });
       }
     }
-  
-  
+  }
+
+
   async getAllTransactionsByUser(req, res) {
     const { accountNumber } = req.params;
     const results = await accountsModel.getAllTransactionsByUser({ accountNumber });
@@ -40,6 +41,8 @@ export default class AccountsController {
         });
       }
     }
+  }
+
   async createBankAccount(req, res) {
     const {
       accountType,
