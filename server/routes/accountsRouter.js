@@ -1,15 +1,18 @@
 import express from 'express';
-import AcctCtrller from '../controllers/accountsController';
-import AcctVal from '../middlewares/accountsValidator';
+import AccountController from '../controllers/accountsController';
+import AccountValidator from '../middlewares/accountsValidator';
 
-const acctVal = new AcctVal();
+const accountValidator = new AccountValidator();
+const accountController = new AccountController();
 
-const acctCtrller = new AcctCtrller();
 const router = express.Router({ mergeParams: true });
 
-router.get('/', acctCtrller.getAll);
-router.post('/', acctVal.valAcctInfo, acctCtrller.createAccount);
-router.patch('/:accountNumber(\\d+)', acctCtrller.activateDeactivate);
-router.delete('/:accountNumber(\\d+)', acctCtrller.deleteAcct);
+router.post('/', [
+  accountValidator.validateAccountInfo,
+  accountController.createBankAccount,
+]);
+
+router.patch('/:accountNumber(\\d+)', accountController.activateDeactivateAccount);
+router.delete('/:accountNumber(\\d+)', accountController.deleteAccount);
 
 export default router;

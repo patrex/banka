@@ -1,5 +1,6 @@
 import express from 'express';
-import users from './routes/usersRouter';
+
+import auth from './routes/authRouter';
 import accounts from './routes/accountsRouter';
 import transactions from './routes/transactionsRouter';
 
@@ -10,7 +11,7 @@ export default app;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/api/v1/auth', users);
+app.use('/api/v1/auth', auth);
 app.use('/api/v1/accounts', accounts);
 app.use('/api/v1/transactions', transactions);
 
