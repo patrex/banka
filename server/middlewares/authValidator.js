@@ -1,5 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import Joi from 'joi';
+import config from 'config';
+import jwt from 'jsonwebtoken';
 
 export default class AuthValidator {
   validateUserInput(req, res, next) {
@@ -61,5 +63,26 @@ export default class AuthValidator {
       });
     }
     next();
+  }
+
+  async authenticateUser(req, res, next) {
+    const token = req.header('x-auth-token');
+    if (!token) {
+      return res.status(401).json({
+        status: 401,
+        message: 'Access Denied. No token provided',
+      });
+    }
+    try {
+      const isVerified = await jwt.verify(token, config.get('keys.jwtKey'));
+      req.user = isVerified;
+
+      next();
+    } catch (err) {
+      res.status(400).json({
+        status: 400,
+        message: 'Invalid token provided',
+      });
+    }
   }
 }
