@@ -1,0 +1,10 @@
+exclude_patterns:
+  - "UI"
+  - "config"
+checks:
+  similar-code:
+  enabled: false
+  return-statements:
+  enabled: false
+  
+
