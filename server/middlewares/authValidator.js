@@ -1,31 +1,27 @@
 /* eslint-disable class-methods-use-this */
 import Joi from 'joi';
+import config from 'config';
+import jwt from 'jsonwebtoken';
 
-export default class UsersValidator {
+export default class AuthValidator {
   validateUserInput(req, res, next) {
     const user = {
       firstname: req.body.firstname,
-      middlename: req.body.middlename,
       lastname: req.body.lastname,
       email: req.body.email,
-      userType: req.body.type, // normal, cashier, admin
-      username: req.body.username,
+      userType: req.body.type, // staff, client,
       password: req.body.password,
-      rpassword: req.body.rpassword,
     };
 
     const schema = Joi.object().keys({
       firstname: Joi.string().min(2).required(),
-      middlename: Joi.string().min(2),
-      username: Joi.string().min(3).max(10).required(),
       lastname: Joi.string().min(2).required(),
       email: Joi.string().email().required(),
       userType: Joi.string().min(5).required(),
       password: Joi.string().regex(/^[a-zA-Z0-9]{6,30}$/).required(),
-      rpassword: Joi.string().regex(/^[a-zA-Z0-9]{6,30}$/).required(),
     });
 
-    const { error, value } = Joi.validate(user, schema, { abortEarly: false });
+    const { error } = Joi.validate(user, schema, { abortEarly: false });
 
     if (error) {
       const errorDetails = error.details;
@@ -44,21 +40,49 @@ export default class UsersValidator {
   }
 
   validateSignIn(req, res, next) {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
     const schema = Joi.object().keys({
-      username: Joi.string().min(3).max(10).required(),
+      email: Joi.string().min(3).max(100).required(),
       password: Joi.string().regex(/^[a-zA-Z0-9]{6,30}$/).required(),
     });
 
-    const { error, value } = Joi.validate({ username, password }, schema);
+    const { error } = Joi.validate({ email, password }, schema);
 
     if (error) {
+      const errorDetails = error.details;
+      const errorMessages = [];
+
+      for (let i in errorDetails) {
+        errorMessages[i] = (errorDetails[i].message).replace(/\"/g, '');
+      }
+
       return res.status(400).json({
         status: 400,
-        error: error.details[0].message,
+        error: errorMessages,
       });
     }
     next();
+  }
+
+  async authenticateUser(req, res, next) {
+    const token = req.header('x-auth-token');
+    if (!token) {
+      return res.status(401).json({
+        status: 401,
+        message: 'Access Denied. No token provided',
+      });
+    }
+    try {
+      const isVerified = await jwt.verify(token, config.get('keys.jwtKey'));
+      req.user = isVerified;
+
+      next();
+    } catch (err) {
+      res.status(400).json({
+        status: 400,
+        message: 'Invalid token provided',
+      });
+    }
   }
 }
