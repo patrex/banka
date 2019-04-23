@@ -94,7 +94,7 @@ a.bannr {
     font-size: 2em;
 }
 
-input[type='password'], input[type='text']  {
+input[type='email'], input[type='password']  {
     display: block;
     height: 2em;
     padding-left: 2px;
@@ -243,6 +243,11 @@ ul.nav-ul li.menu-bar {
             "footer";
         background-color: #eee;
         min-height: 500px;
+    }
+
+    .form {
+
+        margin: 5px 1em;
     }
     
 }
