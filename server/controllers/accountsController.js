@@ -1,5 +1,7 @@
 /* eslint-disable class-methods-use-this */
-import accounts from '../models/accountsModel';
+import AccountsModel from '../models/accountsModel';
+
+const accountsModel = new AccountsModel();
 
 export default class AccountsController {
   async getAllTransactionsByUser(req, res) {
@@ -18,6 +20,72 @@ export default class AccountsController {
           message: 'No results found. Check the account number and retry',
         });
       }
+    }
+  async createBankAccount(req, res) {
+    const {
+      accountType,
+      balance, owner,
+      status,
+    } = req.body;
+
+    const userInfo = {
+      accountType,
+      balance,
+      status,
+      owner,
+    };
+
+    const results = await accountsModel.createBankAccount(userInfo);
+
+    if (results.success) {
+      res.status(200).json({
+        status: 200,
+        data: results.success.rows,
+      });
+    } else if (results.failure) {
+      res.status(400).json({
+        status: 400,
+        message: results.failure.detail,
+      });
+    }
+  }
+
+  async activateDeactivateAccount(req, res) {
+    const { accountNumber } = req.params;
+    const { status } = req.body;
+
+    const results = await accountsModel.activateDeactivateAccount({
+      accountNumber,
+      status,
+    });
+
+    if (results.success) {
+      res.status(200).json({
+        status: 200,
+        data: results.success.rows,
+      });
+    } else if (results.failure) {
+      res.status(400).json({
+        status: 400,
+        message: results.failure.detail,
+      });
+    }
+  }
+
+  async deleteAccount(req, res) {
+    const { accountNumber } = req.params;
+    const results = await accountsModel.deleteBankAccount({ accountNumber });
+
+    if (results.success) {
+      res.status(200).json({
+        status: 200,
+        data: results.success.rows,
+      });
+    } else if (results.failure) {
+      res.status(400).json({
+        status: 400,
+        message: results.failure.detail,
+      });
     }
   }
 }
