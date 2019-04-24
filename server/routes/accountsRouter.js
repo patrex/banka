@@ -21,4 +21,6 @@ router.post('/', [
 router.patch('/:accountNumber(\\d+)', auth.authenticateUser, accountController.activateDeactivateAccount);
 router.delete('/:accountNumber(\\d+)', auth.authenticateUser, accountController.deleteAccount);
 
+router.get('/:accountNumber', auth.authenticateUser, accountController.getAccountDetails);
+
 export default router;

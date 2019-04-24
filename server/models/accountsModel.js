@@ -73,7 +73,27 @@ export default class AccountsModel {
 
     const Response = {};
     try {
-      const Results = await pool.query(text);
+      Response.success = await pool.query(text);
+    } catch (err) {
+      Response.failure = err;
+    } finally {
+      return Response;
+    }
+  }
+
+  async getAnAccountRecord(account) {
+    const { accountNumber } = account;
+    const Response = {};
+    const text = `SELECT acc.createdon AS "createdOn", acc.accountnumber AS "accountNumber", u.email AS "ownerEmail",
+                         acc.type, acc.status, acc.balance 
+                  FROM accounts acc
+                  INNER JOIN users u
+                  ON u.id = acc.owner
+                  WHERE acc.accountNumber=$1
+                  `;
+
+    try {
+      const Results = await pool.query(text, [accountNumber]);
       Response.success = Results;
     } catch (err) {
       Response.failure = err;
