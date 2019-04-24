@@ -54,4 +54,31 @@ export default class AccountsModel {
       return Response;
     }
   }
+
+  async listAllAccounts(status) {
+    let text;
+    text = `SELECT acc.createdon AS "createdOn", acc.accountnumber AS "accountNumber", u.email AS "ownerEmail",
+                   acc.type, acc.status, acc.balance 
+            FROM accounts acc
+            INNER JOIN users u
+            ON u.id = acc.owner;`;
+    if (status) {
+      text = `SELECT accounts.createdon AS "createdOn", accounts.accountnumber AS "accountNumber", users.email AS "ownerEmail",
+                     accounts.type, accounts.status, accounts.balance 
+              FROM accounts
+              INNER JOIN users
+              ON users.id = accounts.owner
+            where accounts.status = '${status}'`;
+    }
+
+    const Response = {};
+    try {
+      const Results = await pool.query(text);
+      Response.success = Results;
+    } catch (err) {
+      Response.failure = err;
+    } finally {
+      return Response;
+    }
+  }
 }
