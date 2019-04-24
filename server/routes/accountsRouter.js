@@ -10,6 +10,8 @@ const accountController = new AccountController();
 
 const router = express.Router({ mergeParams: true });
 
+router.get('/', auth.authenticateUser, accountController.getAllAccounts);
+
 router.post('/', [
   auth.authenticateUser,
   accountValidator.validateAccountInfo,
