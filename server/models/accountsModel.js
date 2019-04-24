@@ -93,7 +93,20 @@ export default class AccountsModel {
                   `;
 
     try {
-      const Results = await pool.query(text, [accountNumber]);
+      Response.success = await pool.query(text, [accountNumber]);
+    } catch (err) {
+      Response.failure = err;
+    } finally {
+      return Response;
+    }
+  }
+
+  async getAllTransactionsByUser(account) {
+    const text = 'SELECT * FROM transactions WHERE accountnumber=$1';
+    const Response = {};
+
+    try {
+      const Results = await pool.query(text, [account.accountNumber]);
       Response.success = Results;
     } catch (err) {
       Response.failure = err;

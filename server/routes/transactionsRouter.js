@@ -10,6 +10,9 @@ const transactionController = new TransactionController();
 
 const router = express.Router({ mergeParams: true });
 
+router.get('/:transactionID', auth.authenticateUser, transactionController.getOneTransaction);
+router.get('/', auth.authenticateUser, transactionController.getAllTransactions);
+
 router.post('/:accountNumber(\\d+)/debit', [
   auth.authenticateUser,
   transactionValidator.validateTransaction,

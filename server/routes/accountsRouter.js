@@ -22,5 +22,6 @@ router.patch('/:accountNumber(\\d+)', auth.authenticateUser, accountController.a
 router.delete('/:accountNumber(\\d+)', auth.authenticateUser, accountController.deleteAccount);
 
 router.get('/:accountNumber', auth.authenticateUser, accountController.getAccountDetails);
+router.get(':accountNumber/transactions', accountController.getAllTransactionsByUser);
 
 export default router;

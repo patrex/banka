@@ -121,4 +121,35 @@ export default class TransactionModel {
       return Response;
     }
   }
+
+  async listAllTransactions() {
+    const text = 'SELECT * FROM transactions';
+    const Response = {};
+
+    try {
+      const Results = await pool.query(text);
+
+      Response.success = Results;
+    } catch (err) {
+      Response.failure = err;
+    } finally {
+      return Response;
+    }
+  }
+
+  async getOneTransaction(transaction) {
+    const { transactionID } = transaction;
+    const Response = {};
+    const text = 'SELECT * FROM transactions WHERE id=$1';
+    const values = [transactionID];
+
+    try {
+      const Results = await pool.query(text, values);
+      Response.success = Results;
+    } catch (err) {
+      Response.failure = err;
+    } finally {
+      return Response;
+    }
+  }
 }
