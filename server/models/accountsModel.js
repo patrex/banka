@@ -54,4 +54,64 @@ export default class AccountsModel {
       return Response;
     }
   }
+
+  async listAllAccounts(status) {
+    let text;
+    text = `SELECT acc.createdon AS "createdOn", acc.accountnumber AS "accountNumber", u.email AS "ownerEmail",
+                   acc.type, acc.status, acc.balance 
+            FROM accounts acc
+            INNER JOIN users u
+            ON u.id = acc.owner;`;
+    if (status) {
+      text = `SELECT accounts.createdon AS "createdOn", accounts.accountnumber AS "accountNumber", users.email AS "ownerEmail",
+                     accounts.type, accounts.status, accounts.balance 
+              FROM accounts
+              INNER JOIN users
+              ON users.id = accounts.owner
+            where accounts.status = '${status}'`;
+    }
+
+    const Response = {};
+    try {
+      Response.success = await pool.query(text);
+    } catch (err) {
+      Response.failure = err;
+    } finally {
+      return Response;
+    }
+  }
+
+  async getAnAccountRecord(account) {
+    const { accountNumber } = account;
+    const Response = {};
+    const text = `SELECT acc.createdon AS "createdOn", acc.accountnumber AS "accountNumber", u.email AS "ownerEmail",
+                         acc.type, acc.status, acc.balance 
+                  FROM accounts acc
+                  INNER JOIN users u
+                  ON u.id = acc.owner
+                  WHERE acc.accountNumber=$1
+                  `;
+
+    try {
+      Response.success = await pool.query(text, [accountNumber]);
+    } catch (err) {
+      Response.failure = err;
+    } finally {
+      return Response;
+    }
+  }
+
+  async getAllTransactionsByUser(account) {
+    const text = 'SELECT * FROM transactions WHERE accountnumber=$1';
+    const Response = {};
+
+    try {
+      const Results = await pool.query(text, [account.accountNumber]);
+      Response.success = Results;
+    } catch (err) {
+      Response.failure = err;
+    } finally {
+      return Response;
+    }
+  }
 }

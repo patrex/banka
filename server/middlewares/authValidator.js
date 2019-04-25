@@ -66,17 +66,17 @@ export default class AuthValidator {
   }
 
   async authenticateUser(req, res, next) {
-    const token = req.header('x-auth-token');
-    if (!token) {
-      return res.status(401).json({
-        status: 401,
+    const AuthHeader = req.headers['authorization'];
+
+    if (!AuthHeader) {
+      return res.status(403).json({
+        status: 403,
         message: 'Access Denied. No token provided',
       });
     }
+    const token = AuthHeader.split(' ')[1];
     try {
-      const isVerified = await jwt.verify(token, config.get('keys.jwtKey'));
-      req.user = isVerified;
-
+      req.token = await jwt.verify(token, config.get('keys.jwtKey'));
       next();
     } catch (err) {
       res.status(400).json({
