@@ -1,6 +1,9 @@
 /* eslint-disable class-methods-use-this */
+
+import EmailUtil from '../utils/emailServices';
 import TransactionsModel from '../models/transactionsModel';
 
+const emailUtil = new EmailUtil();
 const transactionsModel = new TransactionsModel();
 
 export default class Transactions {
@@ -53,6 +56,15 @@ export default class Transactions {
     });
 
     if (results.success) {
+      const email = `
+                    Debit Alert.
+                    Account Number: ${accountNumber}
+                    Amount: N${amount}
+                    Description: ${transactionType}
+                    Balance: ${results.success.rows[0].newbalance}
+                    `;
+      const emailAddress = await emailUtil.getEmail(accountNumber);
+      emailUtil.sendEmail(email, emailAddress);
       res.status(200).json({
         status: 200,
         data: results.success.rows,
@@ -77,6 +89,15 @@ export default class Transactions {
     });
 
     if (results.success) {
+      const email = `
+                    Credit Alert.
+                    Account Number: ${accountNumber}
+                    Amount: N${amount}
+                    Description: ${transactionType}
+                    Balance: ${results.success.rows[0].newbalance}
+                    `;
+      const emailAddress = await emailUtil.getEmail(accountNumber);
+      emailUtil.sendEmail(email, emailAddress);
       res.status(200).json({
         status: 200,
         data: results.success.rows,
