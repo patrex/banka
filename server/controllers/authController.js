@@ -24,7 +24,6 @@ export default class AuthController {
 
     const results = await authModel.createUser(user);
     if (results.success) {
-      // console.log(results.success.rows[0].token);
       res.status(201).json({
         status: 201,
         data: results.success.rows,
