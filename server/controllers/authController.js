@@ -1,9 +1,8 @@
 /* eslint-disable class-methods-use-this */
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import config from 'config';
-import AuthModel from '../models/authModel';
 
+import AuthModel from '../models/authModel';
 const authModel = new AuthModel();
 
 
@@ -20,7 +19,7 @@ export default class AuthController {
     };
 
     user.password = await bcrypt.hash(req.body.password, saltRounds);
-    user.token = await jwt.sign(user, config.get('keys.jwtKey'));
+    user.token = await jwt.sign(user, process.env.JWTKEY);
 
     const results = await authModel.createUser(user);
     if (results.success) {
@@ -51,16 +50,11 @@ export default class AuthController {
             status: 200,
             data: results.success.rows,
           });
-        } else {
-          res.status(400).json({
-            status: 400,
-            message: 'Username or password invalid',
-          });
         }
-      } catch (e) {
-        res.status(500).json({
-          status: 500,
-          message: 'It seems we ran into some trouble with that',
+      } catch (err) {
+        res.status(400).json({
+          status: 400,
+          message: 'Username or password invalid',
         });
       }
     }

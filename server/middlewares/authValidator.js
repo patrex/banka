@@ -1,6 +1,5 @@
 /* eslint-disable class-methods-use-this */
 import Joi from 'joi';
-import config from 'config';
 import jwt from 'jsonwebtoken';
 
 export default class AuthValidator {
@@ -76,7 +75,7 @@ export default class AuthValidator {
     }
     const token = AuthHeader.split(' ')[1];
     try {
-      req.token = await jwt.verify(token, config.get('keys.jwtKey'));
+      req.token = await jwt.verify(token, process.env.JWTKEY);
       next();
     } catch (err) {
       res.status(400).json({
