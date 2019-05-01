@@ -1,8 +1,8 @@
 /* eslint-disable class-methods-use-this */
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-
 import AuthModel from '../models/authModel';
+
 const authModel = new AuthModel();
 
 
