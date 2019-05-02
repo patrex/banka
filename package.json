@@ -5,10 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "@babel/runtime": "^7.4.3",
-    "@sendgrid/mail": "^6.3.1",
     "bcrypt": "^3.0.5",
     "chai": "^4.2.0",
-    "config": "^3.1.0",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "joi": "^14.3.1",
@@ -27,8 +25,7 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "nyc": "^14.0.0",
-    "supertest": "^4.0.2"
+    "nyc": "^14.0.0"
   },
   "scripts": {
     "test": "npm run build && nyc mocha ./build/test/test.js --exit",
