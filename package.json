@@ -21,6 +21,7 @@
     "@babel/plugin-transform-runtime": "^7.4.3",
     "@babel/preset-env": "^7.4.2",
     "coveralls": "^3.0.3",
+    "cross-env": "^5.2.0",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
@@ -29,11 +30,12 @@
     "nyc": "^14.0.0"
   },
   "scripts": {
-    "test": "npm run build && nyc mocha ./build/test/test.js --exit",
+    "test": "npm run build && npm run migrations && cross-env NODE_ENV=test nyc mocha ./build/test/test.js --exit",
     "build": "babel ./server -d ./build",
-    "start": "npm run build && node -r dotenv/config ./build/server",
+    "start": "npm run build && node ./build/server",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint server/**/*.js --ignore-pattern test/"
+    "lint": "eslint server/**/*.js --ignore-pattern test/",
+    "migrations": "cross-env NODE_ENV=test node ./build/models/migrations"
   },
   "repository": {
     "type": "git",

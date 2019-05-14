@@ -10,7 +10,7 @@ const accountController = new AccountController();
 
 const router = express.Router({ mergeParams: true });
 
-router.get('/', auth.authenticateUser, accountController.getAllAccounts);
+router.get('/', auth.authenticateStaff, accountController.getAllAccounts);
 
 router.post('/', [
   auth.authenticateUser,
@@ -18,10 +18,10 @@ router.post('/', [
   accountController.createBankAccount,
 ]);
 
-router.patch('/:accountNumber(\\d+)', auth.authenticateUser, accountController.activateDeactivateAccount);
-router.delete('/:accountNumber(\\d+)', auth.authenticateUser, accountController.deleteAccount);
+router.patch('/:accountNumber(\\d+)', auth.authenticateStaff, accountController.activateDeactivateAccount);
+router.delete('/:accountNumber(\\d+)', auth.authenticateStaff, accountController.deleteAccount);
 
 router.get('/:accountNumber', auth.authenticateUser, accountController.getAccountDetails);
-router.get(':accountNumber/transactions', accountController.getAllTransactionsByUser);
+router.get('/:accountNumber/transactions', auth.authenticateStaff, accountController.getAllTransactionsByUser);
 
 export default router;

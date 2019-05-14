@@ -19,18 +19,33 @@ export default class AuthController {
     };
 
     user.password = await bcrypt.hash(req.body.password, saltRounds);
-    user.token = await jwt.sign(user, process.env.JWTKEY);
-
     const results = await authModel.createUser(user);
+
     if (results.success) {
+      const userResponse = {
+        firstname: results.success.rows[0].firstname,
+        lastname: results.success.rows[0].lastname,
+        email: results.success.rows[0].email,
+        userType: results.success.rows[0].type, // client, staff
+        isAdmin: results.success.rows[0].isadmin,
+      };
+
+      userResponse.token = await jwt.sign(user, process.env.JWTKEY);
+
       res.status(201).json({
         status: 201,
-        data: results.success.rows,
+        data: userResponse,
       });
     } else if (results.failure) {
-      res.status(404).json({
-        status: 404,
-        message: results.failure.detail,
+      let message;
+      if (results.failure.code === '23505') {
+        message = 'There\'s already a user with that email';
+      } else {
+        message = results.failure.detail;
+      }
+      res.status(400).json({
+        status: 400,
+        message,
       });
     }
   }
@@ -43,20 +58,40 @@ export default class AuthController {
     });
 
     if (results.success) {
-      try {
+      if (results.success.rowCount > 0) {
+        const user = {
+          firstname: results.success.rows[0].firstname,
+          lastname: results.success.rows[0].lastname,
+          email: results.success.rows[0].email,
+          userType: results.success.rows[0].type, // client, staff
+          isAdmin: results.success.rows[0].isadmin,
+        };
+
+        user.token = await jwt.sign(user, process.env.JWTKEY);
+
         const passwordValid = await bcrypt.compare(password, results.success.rows[0].password);
         if (passwordValid) {
           res.status(200).json({
             status: 200,
-            data: results.success.rows,
+            data: user,
+          });
+        } else {
+          res.status(400).json({
+            status: 400,
+            message: 'Username or password invalid',
           });
         }
-      } catch (err) {
+      } else {
         res.status(400).json({
           status: 400,
           message: 'Username or password invalid',
         });
       }
+    } else if (results.failure) {
+      res.status(400).json({
+        status: 400,
+        message: 'Username or password invalid',
+      });
     }
   }
 }

@@ -4,4 +4,11 @@ node_js:
 before_install:
   - npm i -g npm@6.9.0
   - npm i -g mocha
+
+services: 
+  - postgresql
+  
+before_script:
+  - psql -c 'create database banka_test_db;' -U postgres
+
 after_success: npm run coverage

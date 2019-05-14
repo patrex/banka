@@ -33,8 +33,8 @@ export default class AccountsModel {
   }
 
   async createBankAccount(accountInfo) {
-    const text = `INSERT INTO accounts(type, createdon, owner, status, balance, haspendingtransaction) 
-                  VALUES($1, $2, $3, $4, $5, $6) RETURNING *`;
+    const text = `INSERT INTO accounts(type, createdon, owner, status, balance) 
+                  VALUES($1, $2, $3, $4, $5) RETURNING *`;
     const Response = {};
 
     try {
@@ -44,7 +44,6 @@ export default class AccountsModel {
         accountInfo.owner,
         accountInfo.status,
         parseFloat(accountInfo.balance),
-        false,
       ]);
 
       Response.success = Results;

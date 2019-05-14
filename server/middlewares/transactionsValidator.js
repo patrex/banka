@@ -7,10 +7,10 @@ export default class TransactionsValidator {
     const { accountNumber } = req.params;
 
     const schema = Joi.object().keys({
-      amount: Joi.number().min(0).required(),
-      cashierID: Joi.number().min(0).required(),
+      amount: Joi.number().min(500).required(),
+      cashierID: Joi.number().min(1).required(),
       transactionType: Joi.string().min(3).required(),
-      accountNumber: Joi.number().min(0).required(),
+      accountNumber: Joi.number().min(1).required(),
     });
     const { error } = Joi.validate({
       amount, cashierID, transactionType, accountNumber,

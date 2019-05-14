@@ -1,6 +1,9 @@
 /* eslint-disable class-methods-use-this */
 import Joi from 'joi';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export default class AuthValidator {
   validateUserInput(req, res, next) {
@@ -42,7 +45,8 @@ export default class AuthValidator {
     const { email, password } = req.body;
 
     const schema = Joi.object().keys({
-      email: Joi.string().min(3).max(100).required(),
+      email: Joi.string().email({ minDomainSegments: 2 }).min(3).max(100)
+        .required(),
       password: Joi.string().regex(/^[a-zA-Z0-9]{6,30}$/).required(),
     });
 
@@ -68,8 +72,8 @@ export default class AuthValidator {
     const AuthHeader = req.headers['authorization'];
 
     if (!AuthHeader) {
-      return res.status(403).json({
-        status: 403,
+      return res.status(401).json({
+        status: 401,
         message: 'Access Denied. No token provided',
       });
     }
@@ -77,6 +81,62 @@ export default class AuthValidator {
     try {
       req.token = await jwt.verify(token, process.env.JWTKEY);
       next();
+    } catch (err) {
+      res.status(400).json({
+        status: 400,
+        message: 'Invalid token provided',
+      });
+    }
+  }
+
+  async authenticateStaff(req, res, next) {
+    const AuthHeader = req.headers['authorization'];
+
+    if (!AuthHeader) {
+      return res.status(401).json({
+        status: 401,
+        message: 'Access Denied. No token provided',
+      });
+    }
+    const token = AuthHeader.split(' ')[1];
+    try {
+      const { userType } = await jwt.verify(token, process.env.JWTKEY);
+      if (userType === 'staff') {
+        next();
+      } else {
+        return res.status(403).json({
+          status: 403,
+          message: 'Forbidden',
+        });
+      }
+    } catch (err) {
+      res.status(400).json({
+        status: 400,
+        message: 'Invalid token provided',
+      });
+    }
+  }
+
+  async authenticateAdmin(req, res, next) {
+    const AuthHeader = req.headers['authorization'];
+
+    if (!AuthHeader) {
+      return res.status(401).json({
+        status: 401,
+        message: 'Access Denied. No token provided',
+      });
+    }
+    const token = AuthHeader.split(' ')[1];
+    try {
+      const { isAdmin } = await jwt.verify(token, process.env.JWTKEY);
+      if (isAdmin) {
+        next();
+      } else {
+        return res.status(403).json({
+          status: 403,
+          message: 'Forbidden',
+        });
+      }
     } catch (err) {
       res.status(400).json({
         status: 400,

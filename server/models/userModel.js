@@ -8,8 +8,8 @@ export default class UserModel {
                       WHERE owner = (
                         SELECT id FROM users
                         WHERE email = $1
-                      )`;
-                      
+                      );`;
+
     const Response = {};
 
     try {
