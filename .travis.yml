@@ -15,4 +15,6 @@ env:
   global:
     - JWTKEY="123i50M3TR1CB0D135"
 
-after_success: npm run coverage
+after_success: 
+  - npm run coverage
+  - npm run 
