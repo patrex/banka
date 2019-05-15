@@ -31,10 +31,13 @@
     "nyc": "^14.0.0"
   },
   "scripts": {
-    "test": "npm run build && npm run migrations && cross-env NODE_ENV=test nyc --reporter=text mocha ./build/test/test.js --exit",
+    "test": "npm run build && npm run migrations && cross-env NODE_ENV=test mocha ./build/test/test.js --exit",
     "build": "babel ./server -d ./build",
     "start": "npm run build && node ./build/server",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "make-lcov": "nyc report --reporter=text-lcov > lcov.info",
+    "coveralls-coverage": "coveralls < lcov.info",
+    "codeClimate-coverage": "codeclimate-test-reporter < lcov.info",
+    "coverage": "nyc npm test && npm run make-lcov && npm run coveralls-coverage && npm run codeClimate-coverage",
     "lint": "eslint server/**/*.js --ignore-pattern test/",
     "migrations": "cross-env NODE_ENV=test node ./build/models/migrations"
   },
