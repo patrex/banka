@@ -12,11 +12,9 @@ before_script:
   - psql -c 'create database banka_test_db;' -U postgres
 
 after_script:
-  - codeclimate-test-reporter < lcov.info
+  - npm run coverage
 
 env:
   global:
     - JWTKEY="123i50M3TR1CB0D135"
-
-after_success: 
-  - npm run coverage 
+ 
